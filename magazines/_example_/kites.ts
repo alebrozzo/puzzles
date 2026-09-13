@@ -80,7 +80,7 @@ export const kitesPuzzle: KitesPuzzle = {
   ],
   options: {
     difficulty: 'hard',
-    maxClues: 40,
+    maxClues: 10,
     allowedClueTypes: ['positive', 'negative', 'disjunction', 'cross-category'],
     seed: 'kites',
   },

@@ -1,6 +1,7 @@
 import type { Category, ClueType, Difficulty, Main, Puzzle } from './model.js'
 
 const MAX_ITEMS = 6
+const MAX_CLUES = 12
 const difficulties = new Set<Difficulty>(['easy', 'medium', 'hard'])
 const clueTypes = new Set<ClueType>([
   'positive',
@@ -110,8 +111,10 @@ function validatePuzzle(
   }
 
   const maxClues = asNumber(options.maxClues, `${path}.options.maxClues`)
-  if (!Number.isInteger(maxClues) || maxClues < 1) {
-    throw new Error('options.maxClues must be a positive integer.')
+  if (!Number.isInteger(maxClues) || maxClues < 1 || maxClues > MAX_CLUES) {
+    throw new Error(
+      `options.maxClues must be a positive integer no greater than ${MAX_CLUES}.`,
+    )
   }
 
   const allowedClueTypes = asStringArray(

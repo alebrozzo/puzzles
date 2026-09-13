@@ -76,6 +76,14 @@ export function generateClues(
   }
 }
 
+// OR-clues resolve the most grid cells per clue (they eliminate several
+// items from a row outright), so a naive "most cells resolved" comparison
+// picks them almost every round and crowds out positive/negative clues.
+// Discounting their score before comparing types keeps them in the running
+// (still picked when they are genuinely the most useful move, typically to
+// break a late tie) without letting them dominate the clue set.
+const DISJUNCTION_SCORE_DISCOUNT = 0.5
+
 function chooseBestCandidate(
   candidates: CatalogClue[],
   selected: CatalogClue[],
@@ -88,20 +96,24 @@ function chooseBestCandidate(
     return undefined
   }
 
-  for (const preferredType of CLUE_TYPE_PREFERENCE[difficulty]) {
-    const best = bestCandidateOfType(
-      candidates,
-      selected,
-      grid,
-      preferredType,
-      rng,
-    )
-    if (best) {
-      return best
+  let winner: CatalogClue | undefined
+  let winnerScore = 0
+
+  for (const clueType of CLUE_TYPE_PREFERENCE[difficulty]) {
+    const found = bestCandidateOfType(candidates, selected, grid, clueType, rng)
+    if (!found) {
+      continue
+    }
+
+    const discount = clueType === 'disjunction' ? DISJUNCTION_SCORE_DISCOUNT : 1
+    const discountedScore = found.score * discount
+    if (discountedScore > winnerScore) {
+      winner = found.candidate
+      winnerScore = discountedScore
     }
   }
 
-  return undefined
+  return winner
 }
 
 // Scores each untried candidate of this type by how many grid cells it (plus
@@ -116,7 +128,7 @@ function bestCandidateOfType(
   grid: Grid,
   clueType: SolverClueType,
   rng: () => number,
-): CatalogClue | undefined {
+): { candidate: CatalogClue; score: number } | undefined {
   let best: CatalogClue | undefined
   let bestScore = 0
   let tieCount = 0
@@ -139,7 +151,7 @@ function bestCandidateOfType(
     }
   }
 
-  return best
+  return best ? { candidate: best, score: bestScore } : undefined
 }
 
 // --- Possibility-grid ranking heuristic -------------------------------
@@ -260,13 +272,22 @@ function applyClueToGrid(grid: Grid, clue: CatalogClue): number {
 
   seedFromClue(grid, clue, markTrue, markFalse)
 
-  while (queue.length > 0) {
-    const cell = queue.shift()!
-    eliminateRowAndColumn(grid, cell, markFalse)
-    propagateAcrossCategories(grid, cell, markTrue)
-    if (queue.length === 0) {
-      forceSingletons(grid, markTrue)
+  // Run row/column elimination and cross-category propagation to a fixed
+  // point, re-checking for forced singletons after each pass. This must
+  // happen even when the queue starts empty (negative and disjunction clues
+  // only ever call markFalse directly), otherwise a negative/disjunction
+  // clue that completes a row/column via elimination alone never gets
+  // credited for the singleton it forces.
+  let forcedNewTrue = true
+  while (queue.length > 0 || forcedNewTrue) {
+    while (queue.length > 0) {
+      const cell = queue.shift()!
+      eliminateRowAndColumn(grid, cell, markFalse)
+      propagateAcrossCategories(grid, cell, markTrue)
     }
+    const beforeForce = changes
+    forceSingletons(grid, markTrue)
+    forcedNewTrue = changes > beforeForce
   }
 
   return changes
