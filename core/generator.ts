@@ -25,14 +25,6 @@ export interface GenerationResult {
 
 type SolverClueType = 'positive' | 'negative' | 'disjunction'
 
-// Categories are capped at 6 items (see plan.md), so unconstrained solution
-// counts for a flat puzzle stay in the tens of thousands at most. A capped
-// count as low as the solver's default uniqueness-proof cap of 2 makes every
-// still-ambiguous candidate look equally good, which defeats ranking entirely,
-// so ranking uses a much higher cap that behaves as an exact count for
-// puzzles at this scale while still bounding worst-case search cost.
-const RANKING_SOLUTION_CAP = 20_000
-
 // Which clue types the generator reaches for first at each difficulty, per
 // the plan's "easy -> direct positives; hard -> indirect/negative" design.
 const CLUE_TYPE_PREFERENCE: Record<Difficulty, SolverClueType[]> = {
@@ -48,14 +40,14 @@ export function generateClues(
   const categories = resolveCategories(puzzle, sharedCategories)
   const candidates = enumerateCandidates(puzzle, categories)
   const selected: CatalogClue[] = []
-  let solutionCount = solve(categories, [], RANKING_SOLUTION_CAP).count
+  const grid = createGrid(categories)
+  let solutionCount = solve(categories).count
 
   while (solutionCount !== 1) {
     const bestCandidate = chooseBestCandidate(
       candidates,
       selected,
-      categories,
-      solutionCount,
+      grid,
       puzzle.options.maxClues,
       puzzle.options.difficulty,
     )
@@ -66,8 +58,9 @@ export function generateClues(
       )
     }
 
-    selected.push(bestCandidate.clue)
-    solutionCount = bestCandidate.solutionCount
+    selected.push(bestCandidate)
+    applyClueToGrid(grid, bestCandidate)
+    solutionCount = solve(categories, selected.filter(isSolverClue)).count
   }
 
   return {
@@ -79,23 +72,16 @@ export function generateClues(
 function chooseBestCandidate(
   candidates: CatalogClue[],
   selected: CatalogClue[],
-  categories: Category[],
-  currentCount: number,
+  grid: Grid,
   maxClues: number,
   difficulty: Difficulty,
-): { clue: CatalogClue; solutionCount: number } | undefined {
+): CatalogClue | undefined {
   if (selected.length >= maxClues) {
     return undefined
   }
 
   for (const preferredType of CLUE_TYPE_PREFERENCE[difficulty]) {
-    const best = bestCandidateOfType(
-      candidates,
-      selected,
-      categories,
-      currentCount,
-      preferredType,
-    )
+    const best = bestCandidateOfType(candidates, selected, grid, preferredType)
     if (best) {
       return best
     }
@@ -104,33 +90,314 @@ function chooseBestCandidate(
   return undefined
 }
 
-// Only ever returns a candidate that actually shrinks the solution count,
-// so the caller can fall through to the next preferred clue type otherwise.
+// Scores each untried candidate of this type by how many grid cells it (plus
+// the deductions it triggers) would resolve, without mutating the shared
+// grid. Only ever returns a candidate that resolves at least one cell, so the
+// caller can fall through to the next preferred clue type otherwise.
 function bestCandidateOfType(
   candidates: CatalogClue[],
   selected: CatalogClue[],
-  categories: Category[],
-  currentCount: number,
+  grid: Grid,
   clueType: SolverClueType,
-): { clue: CatalogClue; solutionCount: number } | undefined {
-  let best: { clue: CatalogClue; solutionCount: number } | undefined
-  let bestReduction = 0
+): CatalogClue | undefined {
+  let best: CatalogClue | undefined
+  let bestScore = 0
 
   for (const candidate of candidates) {
     if (candidate.type !== clueType || selected.includes(candidate)) {
       continue
     }
 
-    const solverClues = [...selected, candidate].filter(isSolverClue)
-    const count = solve(categories, solverClues, RANKING_SOLUTION_CAP).count
-    const reduction = currentCount - count
-    if (reduction > bestReduction) {
-      best = { clue: candidate, solutionCount: count }
-      bestReduction = reduction
+    const score = applyClueToGrid(cloneGrid(grid), candidate)
+    if (score > bestScore) {
+      best = candidate
+      bestScore = score
     }
   }
 
   return best
+}
+
+// --- Possibility-grid ranking heuristic -------------------------------
+//
+// Counting exact solve() solutions to rank candidates does not scale: with
+// up to 6 items per category, unconstrained solution counts reach into the
+// hundreds of millions for just a handful of categories, and any fixed cap
+// makes most candidates look equally "good" (see plan.md's scale decision).
+// Instead, candidates are ranked with the same pairwise possibility-grid
+// elimination a human solver uses: mark a pairing true/false, eliminate the
+// rest of its row and column, cascade that across other categories, and
+// count how many cells got resolved. This is cheap (bounded by category
+// count and size, not by the combinatorial solution space) and is a ranking
+// heuristic ONLY — solve() remains the sole source of truth for proving
+// uniqueness.
+
+type CellState = 'possible' | 'true' | 'false'
+
+interface Grid {
+  categories: Category[]
+  state: Map<string, CellState>
+}
+
+interface Cell {
+  categoryA: string
+  itemA: string
+  categoryB: string
+  itemB: string
+}
+
+function cellKey(
+  categoryA: string,
+  itemA: string,
+  categoryB: string,
+  itemB: string,
+): string {
+  return categoryA < categoryB
+    ? `${categoryA}\u0000${itemA}\u0000${categoryB}\u0000${itemB}`
+    : `${categoryB}\u0000${itemB}\u0000${categoryA}\u0000${itemA}`
+}
+
+function createGrid(categories: Category[]): Grid {
+  const state = new Map<string, CellState>()
+  for (const [categoryA, categoryB] of categoryPairings(categories)) {
+    for (const itemA of categoryA.items) {
+      for (const itemB of categoryB.items) {
+        state.set(
+          cellKey(categoryA.name, itemA, categoryB.name, itemB),
+          'possible',
+        )
+      }
+    }
+  }
+  return { categories, state }
+}
+
+function cloneGrid(grid: Grid): Grid {
+  return { categories: grid.categories, state: new Map(grid.state) }
+}
+
+function getCell(
+  grid: Grid,
+  categoryA: string,
+  itemA: string,
+  categoryB: string,
+  itemB: string,
+): CellState {
+  return (
+    grid.state.get(cellKey(categoryA, itemA, categoryB, itemB)) ?? 'possible'
+  )
+}
+
+// Returns whether this write actually resolved a previously-open cell.
+function setCell(
+  grid: Grid,
+  categoryA: string,
+  itemA: string,
+  categoryB: string,
+  itemB: string,
+  value: 'true' | 'false',
+): boolean {
+  const key = cellKey(categoryA, itemA, categoryB, itemB)
+  if (grid.state.get(key) !== 'possible') {
+    return false
+  }
+  grid.state.set(key, value)
+  return true
+}
+
+// Applies a clue's direct effect to the grid, then propagates row/column and
+// cross-category deductions to a fixed point. Returns the number of cells
+// resolved, for use as a ranking score.
+function applyClueToGrid(grid: Grid, clue: CatalogClue): number {
+  let changes = 0
+  const queue: Cell[] = []
+
+  const markTrue = (
+    categoryA: string,
+    itemA: string,
+    categoryB: string,
+    itemB: string,
+  ): void => {
+    if (setCell(grid, categoryA, itemA, categoryB, itemB, 'true')) {
+      changes += 1
+      queue.push({ categoryA, itemA, categoryB, itemB })
+    }
+  }
+  const markFalse = (
+    categoryA: string,
+    itemA: string,
+    categoryB: string,
+    itemB: string,
+  ): void => {
+    if (setCell(grid, categoryA, itemA, categoryB, itemB, 'false')) {
+      changes += 1
+    }
+  }
+
+  seedFromClue(grid, clue, markTrue, markFalse)
+
+  while (queue.length > 0) {
+    const cell = queue.shift()!
+    eliminateRowAndColumn(grid, cell, markFalse)
+    propagateAcrossCategories(grid, cell, markTrue)
+    if (queue.length === 0) {
+      forceSingletons(grid, markTrue)
+    }
+  }
+
+  return changes
+}
+
+type MarkTrue = (
+  categoryA: string,
+  itemA: string,
+  categoryB: string,
+  itemB: string,
+) => void
+type MarkFalse = MarkTrue
+
+// Disjunction candidates are always generated by enumerateCandidates with a
+// shared left item, so restricting that item's row to the disjunction's
+// right-hand items is a sound, immediate deduction (not just an OR guess).
+function seedFromClue(
+  grid: Grid,
+  clue: CatalogClue,
+  markTrue: MarkTrue,
+  markFalse: MarkFalse,
+): void {
+  if (clue.type === 'positive') {
+    markTrue(
+      clue.pairing.left.category,
+      clue.pairing.left.item,
+      clue.pairing.right.category,
+      clue.pairing.right.item,
+    )
+    return
+  }
+
+  if (clue.type === 'negative') {
+    markFalse(
+      clue.pairing.left.category,
+      clue.pairing.left.item,
+      clue.pairing.right.category,
+      clue.pairing.right.item,
+    )
+    return
+  }
+
+  if (clue.type === 'disjunction') {
+    const { left, right } = clue.pairings[0]
+    const allowed = new Set(clue.pairings.map((pairing) => pairing.right.item))
+    const rightCategory = grid.categories.find(
+      (category) => category.name === right.category,
+    )
+    for (const item of rightCategory?.items ?? []) {
+      if (!allowed.has(item)) {
+        markFalse(left.category, left.item, right.category, item)
+      }
+    }
+  }
+}
+
+function eliminateRowAndColumn(
+  grid: Grid,
+  cell: Cell,
+  markFalse: MarkFalse,
+): void {
+  const categoryA = grid.categories.find((c) => c.name === cell.categoryA)!
+  const categoryB = grid.categories.find((c) => c.name === cell.categoryB)!
+
+  for (const otherItemB of categoryB.items) {
+    if (otherItemB !== cell.itemB) {
+      markFalse(cell.categoryA, cell.itemA, cell.categoryB, otherItemB)
+    }
+  }
+  for (const otherItemA of categoryA.items) {
+    if (otherItemA !== cell.itemA) {
+      markFalse(cell.categoryA, otherItemA, cell.categoryB, cell.itemB)
+    }
+  }
+}
+
+// If itemA-in-categoryA is already linked to some item in a third category,
+// then itemB-in-categoryB (now linked to itemA) must share that same link.
+function propagateAcrossCategories(
+  grid: Grid,
+  cell: Cell,
+  markTrue: MarkTrue,
+): void {
+  for (const other of grid.categories) {
+    if (other.name === cell.categoryA || other.name === cell.categoryB) {
+      continue
+    }
+
+    const linkedToA = findTrueLink(grid, cell.categoryA, cell.itemA, other)
+    if (linkedToA) {
+      markTrue(cell.categoryB, cell.itemB, other.name, linkedToA)
+    }
+
+    const linkedToB = findTrueLink(grid, cell.categoryB, cell.itemB, other)
+    if (linkedToB) {
+      markTrue(cell.categoryA, cell.itemA, other.name, linkedToB)
+    }
+  }
+}
+
+function findTrueLink(
+  grid: Grid,
+  category: string,
+  item: string,
+  otherCategory: Category,
+): string | undefined {
+  return otherCategory.items.find(
+    (otherItem) =>
+      getCell(grid, category, item, otherCategory.name, otherItem) === 'true',
+  )
+}
+
+// Once elimination narrows a row or column down to a single remaining
+// possibility (and no cell in it is already true), that possibility is forced.
+function forceSingletons(grid: Grid, markTrue: MarkTrue): void {
+  for (const [categoryX, categoryY] of categoryPairings(grid.categories)) {
+    for (const itemX of categoryX.items) {
+      forceIfSingleton(grid, categoryX.name, itemX, categoryY, markTrue)
+    }
+    for (const itemY of categoryY.items) {
+      forceIfSingleton(grid, categoryY.name, itemY, categoryX, markTrue)
+    }
+  }
+}
+
+function forceIfSingleton(
+  grid: Grid,
+  fixedCategory: string,
+  fixedItem: string,
+  otherCategory: Category,
+  markTrue: MarkTrue,
+): void {
+  let onlyPossible: string | undefined
+  let possibleCount = 0
+
+  for (const otherItem of otherCategory.items) {
+    const state = getCell(
+      grid,
+      fixedCategory,
+      fixedItem,
+      otherCategory.name,
+      otherItem,
+    )
+    if (state === 'true') {
+      return
+    }
+    if (state === 'possible') {
+      possibleCount += 1
+      onlyPossible = otherItem
+    }
+  }
+
+  if (possibleCount === 1 && onlyPossible) {
+    markTrue(fixedCategory, fixedItem, otherCategory.name, onlyPossible)
+  }
 }
 
 function enumerateCandidates(
