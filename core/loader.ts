@@ -1,10 +1,4 @@
-import type {
-  Campaign,
-  Category,
-  ClueType,
-  Difficulty,
-  Puzzle,
-} from './model.js'
+import type { Category, ClueType, Difficulty, Main, Puzzle } from './model.js'
 
 const MAX_ITEMS = 6
 const difficulties = new Set<Difficulty>(['easy', 'medium', 'hard'])
@@ -15,60 +9,42 @@ const clueTypes = new Set<ClueType>([
   'cross-category',
 ])
 
-export function loadCampaignJson(input: string): Campaign {
-  let value: unknown
-
-  try {
-    value = JSON.parse(input)
-  } catch {
-    throw new Error('Campaign JSON is invalid.')
-  }
-
-  return validateCampaign(value)
-}
-
-function validateCampaign(value: unknown): Campaign {
-  const object = asObject(value, 'Campaign')
+export function loadMainJson(input: string): Main {
+  const value = parseJson(input, 'Main JSON')
+  const object = asObject(value, 'Main')
   const sharedCategories = asCategories(
     object.sharedCategories,
     'sharedCategories',
   )
-  const sharedNames = new Set(sharedCategories.map((category) => category.name))
-  const puzzles = asArray(object.puzzles, 'puzzles').map((entry, index) => {
-    const puzzleEntry = asObject(entry, `puzzles[${index}]`)
-    const puzzle = validatePuzzle(
-      puzzleEntry.puzzle,
-      sharedNames,
-      sharedCategories,
-    )
-
-    return {
-      narration: asString(puzzleEntry.narration, `puzzles[${index}].narration`),
-      puzzle,
-    }
-  })
+  const puzzles = asArray(object.puzzles, 'puzzles').map((puzzle, index) =>
+    validatePuzzle(puzzle, sharedCategories, `puzzles[${index}]`),
+  )
 
   return {
-    title: asString(object.title, 'title'),
-    backstory: asString(object.backstory, 'backstory'),
+    narrativeArch: asString(object.narrativeArch, 'narrativeArch'),
     sharedCategories,
     puzzles,
   }
 }
 
+export function loadPuzzleJson(input: string, main: Main): Puzzle {
+  const value = parseJson(input, 'Puzzle JSON')
+  return validatePuzzle(value, main.sharedCategories, 'Puzzle')
+}
+
 function validatePuzzle(
   value: unknown,
-  sharedNames: Set<string>,
   sharedCategories: Category[],
+  path: string,
 ): Puzzle {
-  const object = asObject(value, 'puzzle')
+  const object = asObject(value, path)
   const sharedCategoryNames = asStringArray(
     object.sharedCategories,
-    'puzzle.sharedCategories',
+    `${path}.sharedCategories`,
   )
   const localCategories = asCategories(
     object.localCategories,
-    'puzzle.localCategories',
+    `${path}.localCategories`,
   )
   const categories = [
     ...sharedCategoryNames.map((name) => {
@@ -77,7 +53,7 @@ function validatePuzzle(
       )
       if (!category) {
         throw new Error(
-          `puzzle.sharedCategories references unknown category '${name}'.`,
+          `sharedCategories references unknown category '${name}'.`,
         )
       }
       return category
@@ -99,25 +75,25 @@ function validatePuzzle(
     categoryNames.add(category.name)
   }
 
-  const solution = asArray(object.solution, 'puzzle.solution').map(
+  const solution = asArray(object.solution, `${path}.solution`).map(
     (row, index) => {
-      const solutionRow = asObject(row, `puzzle.solution[${index}]`)
+      const solutionRow = asObject(row, `${path}.solution[${index}]`)
       const keys = Object.keys(solutionRow).sort()
       const expectedKeys = [...categoryNames].sort()
       if (keys.join('\0') !== expectedKeys.join('\0')) {
         throw new Error(
-          `puzzle.solution[${index}] must contain every puzzle category exactly once.`,
+          `${path}.solution[${index}] must contain every puzzle category exactly once.`,
         )
       }
 
       for (const category of categories) {
         const item = asString(
           solutionRow[category.name],
-          `puzzle.solution[${index}].${category.name}`,
+          `${path}.solution[${index}].${category.name}`,
         )
         if (!category.items.includes(item)) {
           throw new Error(
-            `puzzle.solution[${index}] uses unknown item '${item}' in category '${category.name}'.`,
+            `${path}.solution[${index}] uses unknown item '${item}' in category '${category.name}'.`,
           )
         }
       }
@@ -128,23 +104,23 @@ function validatePuzzle(
 
   validateSolutionRows(solution, categories)
 
-  const options = asObject(object.options, 'puzzle.options')
+  const options = asObject(object.options, `${path}.options`)
   const difficulty = asString(
     options.difficulty,
-    'puzzle.options.difficulty',
+    `${path}.options.difficulty`,
   ) as Difficulty
   if (!difficulties.has(difficulty)) {
     throw new Error(`Unsupported difficulty '${difficulty}'.`)
   }
 
-  const maxClues = asNumber(options.maxClues, 'puzzle.options.maxClues')
+  const maxClues = asNumber(options.maxClues, `${path}.options.maxClues`)
   if (!Number.isInteger(maxClues) || maxClues < 1) {
-    throw new Error('puzzle.options.maxClues must be a positive integer.')
+    throw new Error('options.maxClues must be a positive integer.')
   }
 
   const allowedClueTypes = asStringArray(
     options.allowedClueTypes,
-    'puzzle.options.allowedClueTypes',
+    `${path}.options.allowedClueTypes`,
   ) as ClueType[]
   for (const clueType of allowedClueTypes) {
     if (!clueTypes.has(clueType)) {
@@ -153,7 +129,8 @@ function validatePuzzle(
   }
 
   return {
-    name: asString(object.name, 'puzzle.name'),
+    name: asString(object.name, `${path}.name`),
+    narration: asString(object.narration, `${path}.narration`),
     sharedCategories: sharedCategoryNames,
     localCategories,
     solution,
@@ -174,18 +151,24 @@ function validateSolutionRows(
     )
   }
   if (solution.length !== expectedRowCount) {
-    throw new Error(
-      `puzzle.solution must contain exactly ${expectedRowCount} rows.`,
-    )
+    throw new Error(`solution must contain exactly ${expectedRowCount} rows.`)
   }
 
   for (const category of categories) {
     const values = solution.map((row) => row[category.name])
     if (new Set(values).size !== values.length) {
       throw new Error(
-        `puzzle.solution repeats an item in category '${category.name}'.`,
+        `solution repeats an item in category '${category.name}'.`,
       )
     }
+  }
+}
+
+function parseJson(input: string, label: string): unknown {
+  try {
+    return JSON.parse(input)
+  } catch {
+    throw new Error(`${label} is invalid.`)
   }
 }
 

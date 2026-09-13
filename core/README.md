@@ -1,41 +1,92 @@
 # Core Model
 
-The `core` package contains the puzzle data model and the validation needed before solving or generating clues.
+The `core` package contains the puzzle data model and validation needed before solving or generating clues.
+
+## JSON Files
+
+The app uses one main JSON file and one JSON file per puzzle.
+
+The main file is a catalog of categories that may be shared by puzzles:
+
+```json
+{
+  "narrativeArch": "A weekend of small adventures.",
+  "sharedCategories": [
+    { "name": "People", "items": ["Ari", "Bea"] },
+    { "name": "Days", "items": ["Monday", "Tuesday"] }
+  ],
+  "puzzles": [
+    {
+      "name": "Places",
+      "narration": "Match each person to a place.",
+      "sharedCategories": ["People"],
+      "localCategories": [{ "name": "Places", "items": ["Park", "Cafe"] }],
+      "solution": [
+        { "People": "Ari", "Places": "Park" },
+        { "People": "Bea", "Places": "Cafe" }
+      ],
+      "options": {
+        "difficulty": "easy",
+        "maxClues": 3,
+        "allowedClueTypes": ["positive", "negative"]
+      }
+    }
+  ]
+}
+```
+
+Each puzzle file references only the shared categories it needs. It can also define categories used only by that puzzle:
+
+```json
+{
+  "name": "Places",
+  "narration": "Match each person to a place.",
+  "sharedCategories": ["People"],
+  "localCategories": [{ "name": "Places", "items": ["Park", "Cafe"] }],
+  "solution": [
+    { "People": "Ari", "Places": "Park" },
+    { "People": "Bea", "Places": "Cafe" }
+  ],
+  "options": {
+    "difficulty": "easy",
+    "maxClues": 3,
+    "allowedClueTypes": ["positive", "negative"]
+  }
+}
+```
+
+A puzzle may use no shared categories if all of its categories are local. It still needs at least two total categories. Shared categories do not need to appear in every puzzle.
+
+The main file can contain the puzzle definitions in its `puzzles` array. A separate puzzle JSON file can also be loaded with `loadPuzzleJson` when puzzles are stored independently.
+
+Load the files separately:
+
+```ts
+import { loadMainJson, loadPuzzleJson } from './loader.js'
+
+const main = loadMainJson(mainJsonText)
+const puzzle = loadPuzzleJson(puzzleJsonText, main)
+```
+
+`loadPuzzleJson` verifies that every referenced shared category exists in the main file, then validates the puzzle using the referenced shared categories plus its local categories.
 
 ## Main Types
 
-A campaign contains shared categories and one or more narrated puzzles:
+### `Main`
+
+The main narrative and shared category catalog, plus the puzzles that belong to it:
 
 ```ts
-const campaign: Campaign = {
-  title: 'Weekend Plans',
-  backstory: 'A small group is choosing where to spend the afternoon.',
-  sharedCategories: [{ name: 'People', items: ['Ari', 'Bea'] }],
-  puzzles: [
-    {
-      narration: 'Match each person to a place.',
-      puzzle: {
-        name: 'Places',
-        sharedCategories: ['People'],
-        localCategories: [{ name: 'Places', items: ['Park', 'Cafe'] }],
-        solution: [
-          { People: 'Ari', Places: 'Park' },
-          { People: 'Bea', Places: 'Cafe' },
-        ],
-        options: {
-          difficulty: 'easy',
-          maxClues: 3,
-          allowedClueTypes: ['positive', 'negative'],
-        },
-      },
-    },
-  ],
+interface Main {
+  narrativeArch: string
+  sharedCategories: Category[]
+  puzzles: Puzzle[]
 }
 ```
 
 ### `Category`
 
-A category has a unique name and up to six unique items. Shared categories are declared once on the campaign and referenced by name from puzzles. Puzzle-specific categories are placed in `localCategories`.
+A category has a unique name and up to six unique items:
 
 ```ts
 interface Category {
@@ -44,9 +95,24 @@ interface Category {
 }
 ```
 
+### `Puzzle`
+
+A standalone puzzle references shared category names and owns its local categories:
+
+```ts
+interface Puzzle {
+  name: string
+  narration: string
+  sharedCategories: string[]
+  localCategories: Category[]
+  solution: Solution
+  options: GenerationOptions
+}
+```
+
 ### `Solution`
 
-A solution is an array of rows. Each row contains exactly one item from every puzzle category. Across all rows, every item in each category must appear exactly once.
+A solution is an array of rows. Each row contains exactly one item from every category used by the puzzle. Across all rows, every item in each category must appear exactly once.
 
 ```ts
 type SolutionRow = Record<string, string>
@@ -82,14 +148,6 @@ type ClueType = 'positive' | 'negative' | 'disjunction' | 'cross-category'
 
 Clues are currently represented by the type name and operands in the planned clue catalog. Their natural-language descriptions will be rendered separately so solving logic does not depend on display text.
 
-## Loading JSON
-
-Use `loadCampaignJson` to parse and validate campaign JSON before passing it to the solver:
-
-```ts
-import { loadCampaignJson } from './loader.js'
-
-const campaign = loadCampaignJson(jsonText)
-```
+## Validation
 
 Validation checks category references, item counts and duplicates, solution completeness, bijection across solution rows, and generation options. Invalid input throws an error with the failing field or relationship.

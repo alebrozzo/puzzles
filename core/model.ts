@@ -19,20 +19,15 @@ export interface GenerationOptions {
 
 export interface Puzzle {
   name: string
+  narration: string
   sharedCategories: string[]
   localCategories: Category[]
   solution: Solution
   options: GenerationOptions
 }
 
-export interface CampaignPuzzle {
-  narration: string
-  puzzle: Puzzle
-}
-
-export interface Campaign {
-  title: string
-  backstory: string
+export interface Main {
+  narrativeArch: string
   sharedCategories: Category[]
-  puzzles: CampaignPuzzle[]
+  puzzles: Puzzle[]
 }
