@@ -10,6 +10,7 @@ import {
   describeClue,
   type CatalogClue,
 } from './clues/catalog.js'
+import { resolveSeed, createRng } from './random.js'
 import type { Pairing } from './solver.js'
 import { solve } from './solver.js'
 
@@ -21,6 +22,7 @@ export interface GeneratedClue {
 export interface GenerationResult {
   clues: GeneratedClue[]
   solutionCount: number
+  seed: number
 }
 
 type SolverClueType = 'positive' | 'negative' | 'disjunction'
@@ -36,11 +38,14 @@ const CLUE_TYPE_PREFERENCE: Record<Difficulty, SolverClueType[]> = {
 export function generateClues(
   puzzle: Puzzle,
   sharedCategories: Category[] | Main,
+  defaultSeedSource: string = puzzle.name,
 ): GenerationResult {
   const categories = resolveCategories(puzzle, sharedCategories)
   const candidates = enumerateCandidates(puzzle, categories)
   const selected: CatalogClue[] = []
   const grid = createGrid(categories)
+  const seed = resolveSeed(puzzle.options.seed, defaultSeedSource)
+  const rng = createRng(seed)
   let solutionCount = solve(categories).count
 
   while (solutionCount !== 1) {
@@ -50,6 +55,7 @@ export function generateClues(
       grid,
       puzzle.options.maxClues,
       puzzle.options.difficulty,
+      rng,
     )
 
     if (!bestCandidate) {
@@ -66,6 +72,7 @@ export function generateClues(
   return {
     clues: selected.map((clue) => ({ clue, description: describeClue(clue) })),
     solutionCount,
+    seed,
   }
 }
 
@@ -75,13 +82,20 @@ function chooseBestCandidate(
   grid: Grid,
   maxClues: number,
   difficulty: Difficulty,
+  rng: () => number,
 ): CatalogClue | undefined {
   if (selected.length >= maxClues) {
     return undefined
   }
 
   for (const preferredType of CLUE_TYPE_PREFERENCE[difficulty]) {
-    const best = bestCandidateOfType(candidates, selected, grid, preferredType)
+    const best = bestCandidateOfType(
+      candidates,
+      selected,
+      grid,
+      preferredType,
+      rng,
+    )
     if (best) {
       return best
     }
@@ -93,15 +107,19 @@ function chooseBestCandidate(
 // Scores each untried candidate of this type by how many grid cells it (plus
 // the deductions it triggers) would resolve, without mutating the shared
 // grid. Only ever returns a candidate that resolves at least one cell, so the
-// caller can fall through to the next preferred clue type otherwise.
+// caller can fall through to the next preferred clue type otherwise. Ties for
+// the top score are broken with the seeded rng (reservoir sampling) so equally
+// good candidates vary between seeds while staying deterministic per seed.
 function bestCandidateOfType(
   candidates: CatalogClue[],
   selected: CatalogClue[],
   grid: Grid,
   clueType: SolverClueType,
+  rng: () => number,
 ): CatalogClue | undefined {
   let best: CatalogClue | undefined
   let bestScore = 0
+  let tieCount = 0
 
   for (const candidate of candidates) {
     if (candidate.type !== clueType || selected.includes(candidate)) {
@@ -112,6 +130,12 @@ function bestCandidateOfType(
     if (score > bestScore) {
       best = candidate
       bestScore = score
+      tieCount = 1
+    } else if (score === bestScore && score > 0) {
+      tieCount += 1
+      if (rng() < 1 / tieCount) {
+        best = candidate
+      }
     }
   }
 

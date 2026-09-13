@@ -11,6 +11,7 @@ export interface PuzzleOutputData {
   solution: Record<string, string>[]
   solutionCount: number
   unique: boolean
+  seed: number
 }
 
 export interface PuzzleOutput {
@@ -32,6 +33,7 @@ export function assemblePuzzleOutput(
     solution: puzzle.solution,
     solutionCount: generation.solutionCount,
     unique: generation.solutionCount === 1,
+    seed: generation.seed,
   }
 
   return {
@@ -64,6 +66,7 @@ function renderMarkdown(output: PuzzleOutputData): string {
     '',
     `- Unique solution: ${output.unique ? 'yes' : 'no'}`,
     `- Solutions found: ${output.solutionCount}`,
+    `- Seed: ${output.seed}`,
     '',
   ].join('\n')
 }

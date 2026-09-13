@@ -28,6 +28,10 @@ export interface GenerationOptions {
   difficulty: Difficulty
   maxClues: number
   allowedClueTypes: ClueType[]
+  // Seeds the tie-breaking randomness between equally-good clue choices, so
+  // repeat generations stay deterministic but different puzzles can vary.
+  // Defaults to a hash of the puzzle's file name when omitted.
+  seed?: string | number
 }
 
 /** A standalone puzzle, including its solved answer and generation controls. */

@@ -124,14 +124,29 @@ function validatePuzzle(
     }
   }
 
+  const seed = asOptionalSeed(options.seed, `${path}.options.seed`)
+
   return {
     name: asString(object.name, `${path}.name`),
     narration: asString(object.narration, `${path}.narration`),
     sharedCategories: sharedCategoryNames,
     localCategories,
     solution,
-    options: { difficulty, maxClues, allowedClueTypes },
+    options: { difficulty, maxClues, allowedClueTypes, seed },
   }
+}
+
+function asOptionalSeed(
+  value: unknown,
+  path: string,
+): string | number | undefined {
+  if (value === undefined) {
+    return undefined
+  }
+  if (typeof value === 'string' || typeof value === 'number') {
+    return value
+  }
+  throw new Error(`${path} must be a string or number.`)
 }
 
 function validateSolutionRows(

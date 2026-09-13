@@ -34,6 +34,7 @@ export interface KitesPuzzle extends Omit<
     difficulty: 'hard'
     maxClues: number
     allowedClueTypes: ClueType[]
+    seed: string
   }
 }
 
@@ -81,5 +82,6 @@ export const kitesPuzzle: KitesPuzzle = {
     difficulty: 'hard',
     maxClues: 40,
     allowedClueTypes: ['positive', 'negative', 'disjunction', 'cross-category'],
+    seed: 'kites',
   },
 }
