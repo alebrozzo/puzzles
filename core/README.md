@@ -77,6 +77,19 @@ The current solver supports `positive`, `negative`, and `disjunction` constraint
 
 The clue catalog supports all four public clue types as structured data and provides static descriptions. Cross-category clues are cataloged and rendered, but are not yet accepted by the solver.
 
+## Generator
+
+`generateClues` enumerates deterministic positive, negative, and disjunction candidates from a solved puzzle. It greedily selects the candidate that reduces the solver's remaining solution count the most, stopping when exactly one solution remains or `maxClues` is reached.
+
+```ts
+import { generateClues } from './generator.js'
+
+const result = generateClues(puzzle, main)
+const isUnique = result.solutionCount === 1
+```
+
+Cross-category clues are currently cataloged but cannot be selected as the only allowed type because the solver does not evaluate them yet.
+
 ## Validation
 
 The authoritative descriptions of `Main`, `Category`, `Puzzle`, `Solution`, `GenerationOptions`, `Difficulty`, and `ClueType` are the comments in [model.ts](./model.ts). Validation checks category references, item counts and duplicates, solution completeness, bijection across solution rows, and generation options. Invalid input throws an error with the failing field or relationship.

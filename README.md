@@ -15,15 +15,15 @@ Implemented:
 - Backtracking solver with positive, negative, and disjunction constraints
 - Flat clue catalog with structured positive, negative, disjunction, and cross-category clues
 - Static clue descriptions and allowed-clue-type checks
+- Deterministic greedy clue generator with uniqueness checking
 - Solution counting capped at two, so uniqueness can be distinguished from non-uniqueness
 - Independent brute-force oracle test for solver behavior
 - Prettier and ESLint checks in the test pipeline
 
 Next:
 
-1. Add the deterministic clue generator that selects a minimal unique clue set.
-2. Assemble Markdown and JSON output.
-3. Wire the CLI and add an example campaign.
+1. Assemble Markdown and JSON output.
+2. Wire the CLI and add an example campaign.
 
 `cross-category` is cataloged and rendered, but the solver does not evaluate it yet.
 
@@ -34,6 +34,8 @@ core/
   model.ts       Public data types
   loader.ts      Main and puzzle JSON parsing and validation
   solver.ts      Flat-puzzle backtracking solver
+  generator.ts   Deterministic clue selection and uniqueness proof
+  clues/         Structured clue types and static descriptions
   *.test.ts      Colocated unit and oracle tests
   README.md      Detailed core model and JSON examples
 cli/

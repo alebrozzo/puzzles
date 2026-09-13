@@ -49,7 +49,7 @@ solve to count solutions, iterate until exactly one remains.
    (depends on 2)
 4. **[DONE] Flat clue catalog** — templates: positive, negative, disjunction, cross-category links.
    Each = structured form + static description renderer. (parallel with 3)
-5. **[NOT DONE] Clue generator (scrambler)** — enumerate candidate clues from the solution; greedily
+5. **[DONE] Clue generator (scrambler)** — enumerate candidate clues from the solution; greedily
    select a minimal set (add the clue that most reduces remaining possibilities, respecting
    `options`), re-run solver, stop when solution is forced and proven unique. (depends on 3, 4)
 6. **[NOT DONE] Output assembler** — run generator per puzzle; emit `<name>.result.md` (backstory → per
