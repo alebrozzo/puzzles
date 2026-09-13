@@ -70,7 +70,11 @@ function getPuzzleExportName(modulePath: string): string {
   return `${fileName}Puzzle`
 }
 
-if (process.argv[1] && resolve(process.argv[1]).endsWith('/cli/index.ts')) {
+const entryPoint = process.argv[1] && resolve(process.argv[1])
+if (
+  entryPoint &&
+  (entryPoint.endsWith('/cli/index.ts') || entryPoint.endsWith('/cli/index.js'))
+) {
   runCli(process.argv.slice(2)).catch((error: unknown) => {
     const message = error instanceof Error ? error.message : String(error)
     console.error(message)
