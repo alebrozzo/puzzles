@@ -92,7 +92,7 @@ Cross-category clues are currently cataloged but cannot be selected as the only 
 
 ## Output
 
-`assemblePuzzleOutput` converts a generated puzzle into Markdown and a structured JSON result. The Markdown contains the narrative arc, puzzle narration, numbered clue descriptions, and uniqueness confirmation. The JSON retains the structured clues, descriptions, solution count, and `unique` flag.
+`assemblePuzzleOutput` converts a generated puzzle into Markdown and an in-memory structured result. The Markdown contains the narrative arc, puzzle narration, numbered clue descriptions, and uniqueness confirmation. The structured result retains the clues, descriptions, solution count, and `unique` flag for callers that need it; the CLI writes only Markdown.
 
 ```ts
 import { assemblePuzzleOutput } from './output.js'
@@ -103,10 +103,10 @@ const output = assemblePuzzleOutput(main, puzzle, generation)
 The CLI is responsible for writing these strings to disk. It accepts typed modules directly:
 
 ```sh
-npm run cli -- generate magazines/_example_/main.ts magazines/_example_/kites.ts --out output
+npm run cli -- generate magazines/_example_/kites.ts
 ```
 
-The main module exports `main`; a puzzle module named `kites.ts` exports `kitesPuzzle`.
+The CLI finds `main.ts` in the same folder as the puzzle module. It writes only `kites.result.md` beside the input, using the input basename. The main module exports `main`; a puzzle module named `kites.ts` exports `kitesPuzzle`.
 
 ## Validation
 

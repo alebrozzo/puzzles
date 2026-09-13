@@ -1,30 +1,42 @@
 #!/usr/bin/env node
 
-import { mkdir, writeFile } from 'node:fs/promises'
-import { basename, extname, resolve } from 'node:path'
+import { writeFile } from 'node:fs/promises'
+import { basename, dirname, extname, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { generateClues } from '../core/generator.js'
 import type { Main, Puzzle } from '../core/model.js'
 import { assemblePuzzleOutput } from '../core/output.js'
 
-export async function generateFiles(
+export async function writeGeneratedFiles(
   main: Main,
   puzzle: Puzzle,
-  outputDirectory: string,
-): Promise<{ markdownPath: string; jsonPath: string }> {
+  puzzlePath: string,
+): Promise<{ markdownPath: string }> {
   const generation = generateClues(puzzle, main)
   const output = assemblePuzzleOutput(main, puzzle, generation)
-  const outputBase = resolve(outputDirectory, `${puzzle.name}.result`)
+  const outputBase = resolve(
+    dirname(puzzlePath),
+    `${basename(puzzlePath, extname(puzzlePath))}.result`,
+  )
   const markdownPath = `${outputBase}.md`
-  const jsonPath = `${outputBase}.json`
 
-  await mkdir(outputDirectory, { recursive: true })
-  await Promise.all([
-    writeFile(markdownPath, output.markdown, 'utf8'),
-    writeFile(jsonPath, `${JSON.stringify(output.json, null, 2)}\n`, 'utf8'),
-  ])
+  await writeFile(markdownPath, output.markdown, 'utf8')
 
-  return { markdownPath, jsonPath }
+  return { markdownPath }
+}
+
+export async function generateFiles(
+  puzzlePath: string,
+): Promise<{ markdownPath: string }> {
+  const absolutePuzzlePath = resolve(puzzlePath)
+  const mainPath = resolve(dirname(absolutePuzzlePath), 'main.ts')
+  const main = await loadExport<Main>(mainPath, 'main')
+  const puzzle = await loadExport<Puzzle>(
+    absolutePuzzlePath,
+    getPuzzleExportName(absolutePuzzlePath),
+  )
+
+  return writeGeneratedFiles(main, puzzle, absolutePuzzlePath)
 }
 
 async function loadExport<T>(
@@ -44,25 +56,13 @@ async function loadExport<T>(
 }
 
 export async function runCli(args: string[]): Promise<void> {
-  if (args[0] !== 'generate' || !args[1] || !args[2]) {
-    throw new Error(
-      'Usage: puzzle generate <main.ts> <puzzle.ts> [--out <directory>]',
-    )
+  if (args[0] !== 'generate' || !args[1] || args.length !== 2) {
+    throw new Error('Usage: puzzle generate <puzzle.ts>')
   }
 
-  const outputFlagIndex = args.indexOf('--out')
-  if (outputFlagIndex !== -1 && !args[outputFlagIndex + 1]) {
-    throw new Error('The --out option requires a directory.')
-  }
-
-  const outputDirectory =
-    outputFlagIndex === -1 ? '.' : args[outputFlagIndex + 1]
-  const main = await loadExport<Main>(args[1], 'main')
-  const puzzle = await loadExport<Puzzle>(args[2], getPuzzleExportName(args[2]))
-  const paths = await generateFiles(main, puzzle, outputDirectory)
+  const paths = await generateFiles(args[1])
 
   console.log(`Wrote ${paths.markdownPath}`)
-  console.log(`Wrote ${paths.jsonPath}`)
 }
 
 function getPuzzleExportName(modulePath: string): string {

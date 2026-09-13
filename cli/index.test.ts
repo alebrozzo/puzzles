@@ -1,22 +1,21 @@
-import { mkdtemp, readFile } from 'node:fs/promises'
+import { access, mkdtemp, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { kitesPuzzle } from '../magazines/_example_/kites.js'
 import { main } from '../magazines/_example_/main.js'
-import { generateFiles } from './index.js'
+import { writeGeneratedFiles } from './index.js'
 
-describe('generateFiles', () => {
-  it('writes Markdown and JSON results for a typed puzzle module', async () => {
+describe('writeGeneratedFiles', () => {
+  it('writes a Markdown result for a typed puzzle module', async () => {
     const outputDirectory = await mkdtemp(join(tmpdir(), 'logic-grid-'))
-    const paths = await generateFiles(main, kitesPuzzle, outputDirectory)
+    const puzzlePath = join(outputDirectory, 'kites.ts')
+    const paths = await writeGeneratedFiles(main, kitesPuzzle, puzzlePath)
     const markdown = await readFile(paths.markdownPath, 'utf8')
-    const json = JSON.parse(await readFile(paths.jsonPath, 'utf8')) as {
-      name: string
-      unique: boolean
-    }
 
     expect(markdown).toContain('# Kites')
-    expect(json).toMatchObject({ name: 'Kites', unique: true })
+    await expect(
+      access(join(outputDirectory, 'kites.result.json')),
+    ).rejects.toThrow()
   })
 })

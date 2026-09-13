@@ -16,7 +16,7 @@ Implemented:
 - Flat clue catalog with structured positive, negative, disjunction, and cross-category clues
 - Static clue descriptions and allowed-clue-type checks
 - Deterministic greedy clue generator with uniqueness checking
-- Markdown and JSON output assembly with uniqueness confirmation
+- Markdown output assembly with uniqueness confirmation
 - CLI generation from typed main and puzzle modules
 - Solution counting capped at two, so uniqueness can be distinguished from non-uniqueness
 - Independent brute-force oracle test for solver behavior
@@ -84,14 +84,14 @@ The generator will eventually need tests for:
 - Exactly one solution for every generated clue set
 - Non-uniqueness after removing any one generated clue
 - Deterministic output
-- End-to-end Markdown and JSON generation
+- End-to-end Markdown generation
 
 ## CLI
 
 Generate results from the typed main and puzzle modules:
 
 ```sh
-npm run cli -- generate magazines/_example_/main.ts magazines/_example_/kites.ts --out output
+npm run cli -- generate magazines/_example_/kites.ts
 ```
 
-This writes `output/Kites.result.md` and `output/Kites.result.json`. The main module must export `main`, and a puzzle module named `kites.ts` must export `kitesPuzzle`.
+This finds `main.ts` beside the puzzle module and writes `magazines/_example_/kites.result.md`. The main module must export `main`, and a puzzle module named `kites.ts` must export `kitesPuzzle`.

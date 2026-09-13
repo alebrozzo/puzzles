@@ -21,7 +21,7 @@ solve to count solutions, iterate until exactly one remains.
   = later phase, designed as a pluggable clue module from day one.
 - **Build order**: headless `core/` + CLI first, test-driven. UI later.
 - **Clue explanations**: Phase 1 = STATIC descriptions. Deduction-trace = later enhancement.
-- **Input/output**: JSON input (hand-edited); output written to `.md` + `.json`.
+- **Input/output**: typed TypeScript modules; output written to `.md`.
 - **Generation control**: global knobs only — `difficulty`, `maxClues`, `allowedClueTypes`
   (no per-clue pin/forbid).
 - **Difficulty**: controls clue-type mix (easy → direct positives; hard → indirect/negative).
@@ -53,8 +53,8 @@ solve to count solutions, iterate until exactly one remains.
    select a minimal set (add the clue that most reduces remaining possibilities, respecting
    `options`), re-run solver, stop when solution is forced and proven unique. (depends on 3, 4)
 6. **[DONE] Output assembler** — run generator per puzzle; emit `<name>.result.md` (backstory → per
-   puzzle: narration, numbered clues, descriptions, uniqueness confirmation) and `<name>.result.json`. (depends on 5)
-7. **[DONE] CLI command** — `puzzle generate main.ts puzzle.ts [--out dir]`; wire loading → generation →
+   puzzle: narration, numbered clues, descriptions, uniqueness confirmation). (depends on 5)
+7. **[DONE] CLI command** — `puzzle generate puzzle.ts`; load adjacent `main.ts` and write sibling result files; wire loading → generation →
    output; friendly errors for invalid input or unsatisfiable options. (depends on 6)
 8. **[NOT DONE] Example campaign + tests** — family-vacation example (activities puzzle, dinner puzzle)
    as fixture + end-to-end test asserting unique solutions. (depends on 7)
@@ -90,7 +90,7 @@ cannot be eyeballed. Testing approach avoids circularity (do NOT grade the solve
    solver by design.
 3. **Uniqueness** — each generated clue set yields exactly one solution.
 4. **Minimality** — removing any single generated clue makes the solution non-unique.
-5. **End-to-end** — `puzzle generate magazines/_example_/main.ts magazines/_example_/family-vacation.ts` produces a `.md` with all
+5. **End-to-end** — `puzzle generate magazines/_example_/family-vacation.ts` produces a sibling `.md` file with all
    puzzles, clues, descriptions, and uniqueness confirmations.
 
 ## Suggested first checkpoint
