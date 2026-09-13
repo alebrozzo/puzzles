@@ -21,11 +21,13 @@ export interface SolverResult {
   trace: string[]
 }
 
+// Default cap for direct solve() callers proving uniqueness (1 vs. more than 1).
 const MAX_SOLUTIONS = 2
 
 export function solve(
   categories: Category[],
   clues: SolverClue[] = [],
+  maxSolutions: number = MAX_SOLUTIONS,
 ): SolverResult {
   validateCategories(categories)
   validateClues(categories, clues)
@@ -42,6 +44,7 @@ export function solve(
     remainingCategories,
     clues,
     result,
+    maxSolutions,
   )
   return result
 }
@@ -54,8 +57,9 @@ function search(
   remainingCategories: Category[],
   clues: SolverClue[],
   result: SolverResult,
+  maxSolutions: number,
 ): void {
-  if (result.count >= MAX_SOLUTIONS) {
+  if (result.count >= maxSolutions) {
     return
   }
 
@@ -77,6 +81,7 @@ function search(
     remainingCategories,
     clues,
     result,
+    maxSolutions,
   )
 }
 
@@ -90,8 +95,9 @@ function assignCategory(
   remainingCategories: Category[],
   clues: SolverClue[],
   result: SolverResult,
+  maxSolutions: number,
 ): void {
-  if (result.count >= MAX_SOLUTIONS) {
+  if (result.count >= maxSolutions) {
     return
   }
 
@@ -115,6 +121,7 @@ function assignCategory(
           remainingCategories,
           clues,
           result,
+          maxSolutions,
         )
       }
       assignments.pop()
@@ -139,6 +146,7 @@ function assignCategory(
       remainingCategories,
       clues,
       result,
+      maxSolutions,
     )
     delete row[category.name]
   }

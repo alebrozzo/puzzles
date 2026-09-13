@@ -1,4 +1,10 @@
-import type { Category, Main, Puzzle, SolutionRow } from './model.js'
+import type {
+  Category,
+  Difficulty,
+  Main,
+  Puzzle,
+  SolutionRow,
+} from './model.js'
 import {
   clueTypeIsAllowed,
   describeClue,
@@ -17,6 +23,24 @@ export interface GenerationResult {
   solutionCount: number
 }
 
+type SolverClueType = 'positive' | 'negative' | 'disjunction'
+
+// Categories are capped at 6 items (see plan.md), so unconstrained solution
+// counts for a flat puzzle stay in the tens of thousands at most. A capped
+// count as low as the solver's default uniqueness-proof cap of 2 makes every
+// still-ambiguous candidate look equally good, which defeats ranking entirely,
+// so ranking uses a much higher cap that behaves as an exact count for
+// puzzles at this scale while still bounding worst-case search cost.
+const RANKING_SOLUTION_CAP = 20_000
+
+// Which clue types the generator reaches for first at each difficulty, per
+// the plan's "easy -> direct positives; hard -> indirect/negative" design.
+const CLUE_TYPE_PREFERENCE: Record<Difficulty, SolverClueType[]> = {
+  easy: ['positive', 'negative', 'disjunction'],
+  medium: ['negative', 'positive', 'disjunction'],
+  hard: ['disjunction', 'negative', 'positive'],
+}
+
 export function generateClues(
   puzzle: Puzzle,
   sharedCategories: Category[] | Main,
@@ -24,7 +48,7 @@ export function generateClues(
   const categories = resolveCategories(puzzle, sharedCategories)
   const candidates = enumerateCandidates(puzzle, categories)
   const selected: CatalogClue[] = []
-  let solutionCount = solve(categories).count
+  let solutionCount = solve(categories, [], RANKING_SOLUTION_CAP).count
 
   while (solutionCount !== 1) {
     const bestCandidate = chooseBestCandidate(
@@ -33,6 +57,7 @@ export function generateClues(
       categories,
       solutionCount,
       puzzle.options.maxClues,
+      puzzle.options.difficulty,
     )
 
     if (!bestCandidate) {
@@ -57,21 +82,47 @@ function chooseBestCandidate(
   categories: Category[],
   currentCount: number,
   maxClues: number,
+  difficulty: Difficulty,
 ): { clue: CatalogClue; solutionCount: number } | undefined {
   if (selected.length >= maxClues) {
     return undefined
   }
 
+  for (const preferredType of CLUE_TYPE_PREFERENCE[difficulty]) {
+    const best = bestCandidateOfType(
+      candidates,
+      selected,
+      categories,
+      currentCount,
+      preferredType,
+    )
+    if (best) {
+      return best
+    }
+  }
+
+  return undefined
+}
+
+// Only ever returns a candidate that actually shrinks the solution count,
+// so the caller can fall through to the next preferred clue type otherwise.
+function bestCandidateOfType(
+  candidates: CatalogClue[],
+  selected: CatalogClue[],
+  categories: Category[],
+  currentCount: number,
+  clueType: SolverClueType,
+): { clue: CatalogClue; solutionCount: number } | undefined {
   let best: { clue: CatalogClue; solutionCount: number } | undefined
-  let bestReduction = Number.NEGATIVE_INFINITY
+  let bestReduction = 0
 
   for (const candidate of candidates) {
-    if (selected.includes(candidate)) {
+    if (candidate.type !== clueType || selected.includes(candidate)) {
       continue
     }
 
     const solverClues = [...selected, candidate].filter(isSolverClue)
-    const count = solve(categories, solverClues).count
+    const count = solve(categories, solverClues, RANKING_SOLUTION_CAP).count
     const reduction = currentCount - count
     if (reduction > bestReduction) {
       best = { clue: candidate, solutionCount: count }
