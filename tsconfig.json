@@ -10,6 +10,11 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["core/**/*.ts", "cli/**/*.ts", "tests/**/*.ts", "vitest.config.ts"],
+  "include": [
+    "core/**/*.ts",
+    "cli/**/*.ts",
+    "tests/**/*.ts",
+    "vitest.config.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }

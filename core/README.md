@@ -30,7 +30,7 @@ const campaign: Campaign = {
       },
     },
   ],
-};
+}
 ```
 
 ### `Category`
@@ -39,8 +39,8 @@ A category has a unique name and up to six unique items. Shared categories are d
 
 ```ts
 interface Category {
-  name: string;
-  items: string[];
+  name: string
+  items: string[]
 }
 ```
 
@@ -49,8 +49,8 @@ interface Category {
 A solution is an array of rows. Each row contains exactly one item from every puzzle category. Across all rows, every item in each category must appear exactly once.
 
 ```ts
-type SolutionRow = Record<string, string>;
-type Solution = SolutionRow[];
+type SolutionRow = Record<string, string>
+type Solution = SolutionRow[]
 ```
 
 ### `GenerationOptions`
@@ -59,9 +59,9 @@ These options control clue generation globally for a puzzle:
 
 ```ts
 interface GenerationOptions {
-  difficulty: Difficulty;
-  maxClues: number;
-  allowedClueTypes: ClueType[];
+  difficulty: Difficulty
+  maxClues: number
+  allowedClueTypes: ClueType[]
 }
 ```
 
@@ -72,7 +72,7 @@ interface GenerationOptions {
 `ClueType` identifies the logical relationship expressed by a generated clue:
 
 ```ts
-type ClueType = 'positive' | 'negative' | 'disjunction' | 'cross-category';
+type ClueType = 'positive' | 'negative' | 'disjunction' | 'cross-category'
 ```
 
 - **`positive`**: states that two items are paired. Example: “Ari visited the Park.”
@@ -87,9 +87,9 @@ Clues are currently represented by the type name and operands in the planned clu
 Use `loadCampaignJson` to parse and validate campaign JSON before passing it to the solver:
 
 ```ts
-import { loadCampaignJson } from './loader.js';
+import { loadCampaignJson } from './loader.js'
 
-const campaign = loadCampaignJson(jsonText);
+const campaign = loadCampaignJson(jsonText)
 ```
 
 Validation checks category references, item counts and duplicates, solution completeness, bijection across solution rows, and generation options. Invalid input throws an error with the failing field or relationship.
