@@ -13,7 +13,7 @@
   "include": [
     "core/**/*.ts",
     "cli/**/*.ts",
-    "examples/**/*.ts",
+    "magazines/**/*.ts",
     "tests/**/*.ts",
     "vitest.config.ts"
   ],

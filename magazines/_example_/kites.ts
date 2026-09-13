@@ -1,4 +1,4 @@
-import type { ClueType, Puzzle } from '../core/model.js'
+import type { ClueType, Puzzle } from '../../core/model.js'
 import type { KidAge, KidName, SharedCategoryName } from './main.js'
 
 export type KitesShape = 'Bicycle' | 'Car' | 'Motorcycle' | 'Train'

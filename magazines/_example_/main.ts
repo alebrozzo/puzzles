@@ -1,4 +1,4 @@
-import type { Category, Main } from '../core/model.js'
+import type { Category, Main } from '../../core/model.js'
 
 export type KidName = 'Amelia' | 'Bonifacio' | 'Fausto' | 'Guadalupe'
 export type KidAge = '5 years' | '6 years' | '7 years' | '8 years'

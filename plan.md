@@ -74,7 +74,7 @@ solve to count solutions, iterate until exactly one remains.
 - `core/generator.ts` — greedy minimal-clue selection + uniqueness proof
 - `core/output.ts` — markdown/JSON assembler
 - `cli/index.ts` — CLI entry
-- `examples/family-vacation.json` — example campaign
+- `magazines/_example_/family-vacation.ts` — example campaign
 - `*.test.ts` — Vitest suites (solver, generator, e2e)
 
 ## Verification
@@ -90,7 +90,7 @@ cannot be eyeballed. Testing approach avoids circularity (do NOT grade the solve
    solver by design.
 3. **Uniqueness** — each generated clue set yields exactly one solution.
 4. **Minimality** — removing any single generated clue makes the solution non-unique.
-5. **End-to-end** — `puzzle generate examples/family-vacation.json` produces a `.md` with all
+5. **End-to-end** — `puzzle generate magazines/_example_/main.ts magazines/_example_/family-vacation.ts` produces a `.md` with all
    puzzles, clues, descriptions, and uniqueness confirmations.
 
 ## Suggested first checkpoint

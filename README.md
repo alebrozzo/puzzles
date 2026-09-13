@@ -42,9 +42,10 @@ core/
   README.md      Detailed core model and JSON examples
 cli/
   index.ts       CLI entry point and result-file writer
-examples/
-  main.ts        Typed shared NAME and AGE category catalog
-  kites.ts       Typed Kites puzzle data and category types
+magazines/
+  _example_/
+    main.ts      Typed shared NAME and AGE category catalog
+    kites.ts     Typed Kites puzzle data and category types
 plan.md          Original product plan and implementation sequence
 ```
 
@@ -55,8 +56,8 @@ The repository uses one typed TypeScript main file and one typed TypeScript data
 Load the main catalog first when resolving a standalone puzzle file:
 
 ```ts
-import { kitesPuzzle } from './examples/kites.js'
-import { main } from './examples/main.js'
+import { kitesPuzzle } from './magazines/_example_/kites.js'
+import { main } from './magazines/_example_/main.js'
 
 const sharedCategories = main.sharedCategories
 const puzzle = kitesPuzzle
@@ -90,7 +91,7 @@ The generator will eventually need tests for:
 Generate results from the typed main and puzzle modules:
 
 ```sh
-npm run cli -- generate examples/main.ts examples/kites.ts --out output
+npm run cli -- generate magazines/_example_/main.ts magazines/_example_/kites.ts --out output
 ```
 
 This writes `output/Kites.result.md` and `output/Kites.result.json`. The main module must export `main`, and a puzzle module named `kites.ts` must export `kitesPuzzle`.

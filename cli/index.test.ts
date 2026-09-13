@@ -2,8 +2,8 @@ import { mkdtemp, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { kitesPuzzle } from '../examples/kites.js'
-import { main } from '../examples/main.js'
+import { kitesPuzzle } from '../magazines/_example_/kites.js'
+import { main } from '../magazines/_example_/main.js'
 import { generateFiles } from './index.js'
 
 describe('generateFiles', () => {

@@ -40,7 +40,7 @@ Each puzzle file references only the shared categories it needs. It can also def
 
 A puzzle may use no shared categories if all of its categories are local. It still needs at least two total categories. Shared categories do not need to appear in every puzzle.
 
-Puzzle data files can be imported directly when they are typed TypeScript modules, such as `examples/kites.ts`. Raw JSON puzzle files can be loaded with `loadPuzzleJson`.
+Puzzle data files can be imported directly when they are typed TypeScript modules, such as `magazines/_example_/kites.ts`. Raw JSON puzzle files can be loaded with `loadPuzzleJson`.
 
 Load the files separately:
 
@@ -103,7 +103,7 @@ const output = assemblePuzzleOutput(main, puzzle, generation)
 The CLI is responsible for writing these strings to disk. It accepts typed modules directly:
 
 ```sh
-npm run cli -- generate examples/main.ts examples/kites.ts --out output
+npm run cli -- generate magazines/_example_/main.ts magazines/_example_/kites.ts --out output
 ```
 
 The main module exports `main`; a puzzle module named `kites.ts` exports `kitesPuzzle`.
