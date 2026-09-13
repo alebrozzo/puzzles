@@ -136,18 +136,20 @@ function assignCategory(
     }
 
     row[category.name] = item
-    assignCategory(
-      categoryIndex + 1,
-      row,
-      assignments,
-      rowIndex,
-      anchorItems,
-      anchorName,
-      remainingCategories,
-      clues,
-      result,
-      maxSolutions,
-    )
+    if (isPartiallyConsistent(row, assignments, clues)) {
+      assignCategory(
+        categoryIndex + 1,
+        row,
+        assignments,
+        rowIndex,
+        anchorItems,
+        anchorName,
+        remainingCategories,
+        clues,
+        result,
+        maxSolutions,
+      )
+    }
     delete row[category.name]
   }
 }
@@ -157,11 +159,39 @@ function isPartiallyConsistent(
   assignments: SolutionRow[],
   clues: SolverClue[],
 ): boolean {
-  return clues.every((clue) =>
-    clue.type === 'negative'
-      ? !pairingExists(clue.pairing, row, assignments)
-      : true,
-  )
+  return clues.every((clue) => {
+    if (clue.type === 'negative') {
+      return !pairingExists(clue.pairing, row, assignments)
+    }
+    if (clue.type === 'disjunction') {
+      return clue.pairings.some((pairing) =>
+        pairingIsPossible(pairing, row, assignments),
+      )
+    }
+    return pairingIsPossible(clue.pairing, row, assignments)
+  })
+}
+
+function pairingIsPossible(
+  { left, right }: Pairing,
+  row: SolutionRow,
+  assignments: SolutionRow[],
+): boolean {
+  return [...assignments, row].every((assignment) => {
+    if (
+      assignment[left.category] === left.item &&
+      assignment[right.category] !== undefined
+    ) {
+      return assignment[right.category] === right.item
+    }
+    if (
+      assignment[right.category] === right.item &&
+      assignment[left.category] !== undefined
+    ) {
+      return assignment[left.category] === left.item
+    }
+    return true
+  })
 }
 
 function isSolutionConsistent(

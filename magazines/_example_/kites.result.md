@@ -6,15 +6,15 @@ Today they are flying their kites.
 
 ## Clues
 
-1. Fausto (NAME) is paired with Black (COLOR).
-2. 5 years (AGE) is paired with Black (COLOR).
-3. Fausto (NAME) is paired with Motorcycle (SHAPE).
-4. Guadalupe (NAME) is paired with 7 years (AGE).
-5. 7 years (AGE) is paired with Blue (COLOR).
-6. 7 years (AGE) is paired with Bicycle (SHAPE).
-7. Car (SHAPE) is not paired with Pink (COLOR).
-8. Bonifacio (NAME) is not paired with Car (SHAPE).
-9. 8 years (AGE) is not paired with Green (COLOR).
+1. 7 years (AGE) is paired with Blue (COLOR) or 7 years (AGE) is paired with Pink (COLOR).
+2. Amelia (NAME) is not paired with Train (SHAPE).
+3. Amelia (NAME) is not paired with Black (COLOR).
+4. 8 years (AGE) is paired with Pink (COLOR).
+5. 5 years (AGE) is paired with Motorcycle (SHAPE).
+6. Fausto (NAME) is not paired with 7 years (AGE).
+7. Amelia (NAME) is paired with 6 years (AGE).
+8. Bonifacio (NAME) is paired with 6 years (AGE) or Bonifacio (NAME) is paired with 8 years (AGE).
+9. Bicycle (SHAPE) is paired with Blue (COLOR).
 
 ## Results
 

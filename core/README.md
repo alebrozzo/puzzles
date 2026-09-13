@@ -79,7 +79,13 @@ The clue catalog supports all four public clue types as structured data and prov
 
 ## Generator
 
-`generateClues` enumerates deterministic positive, negative, and disjunction candidates from a solved puzzle. It greedily selects the candidate that reduces the solver's remaining solution count the most, stopping when exactly one solution remains or `maxClues` is reached.
+`generateClues` validates its input and enumerates positive, negative, and disjunction candidates from a solved puzzle. It tries up to 32 seeded, randomized greedy searches, ranking candidates by possibility-grid deductions. It retains the shortest accepted set, preferring fewer direct facts when lengths tie, and shuffles presentation order deterministically.
+
+Generation honors `allowedClueTypes` and `maxClues` (1-12), with at most two disjunctions. For puzzles with more than two categories, hard puzzles allow at most one direct positive fact per solution row. Medium puzzles allow at most two, but fewer than the number needed to directly connect every category in a row. Easy puzzles do not impose that direct-fact limit.
+
+Every returned set has exactly one solution and is irredundant: removing any clue permits multiple solutions. It must also be solvable by the generator's row/column elimination, singleton, and cross-category linking deductions without guessing. This is not a proof of globally minimum clue count or a calibrated human difficulty rating; editorial playtesting is still needed.
+
+If no attempt meets the budget and quality checks, generation throws rather than relaxing them. Search exhaustion does not prove that no suitable clue set exists. Restrictive allowed types or budgets may prevent generation.
 
 ```ts
 import { generateClues } from './generator.js'

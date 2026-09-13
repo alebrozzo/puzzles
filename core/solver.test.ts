@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import type { Category, Solution, SolutionRow } from './model.js'
 import { solve, type SolverClue } from './solver.js'
+import { generateClues } from './generator.js'
+import { createRng } from './random.js'
 
 const categories: Category[] = [
   { name: 'People', items: ['Ari', 'Bea', 'Cam'] },
@@ -68,9 +70,82 @@ describe('solve', () => {
       bruteForceCount(categories, clues),
     )
   })
+
+  it('matches exhaustive counts for mixed, reversed, and contradictory constraints', () => {
+    const rng = createRng(2026)
+    const candidates = categories.flatMap((left) =>
+      categories
+        .filter((right) => left !== right)
+        .flatMap((right) =>
+          left.items.flatMap((leftItem) =>
+            right.items.map((rightItem) =>
+              pairing(left.name, leftItem, right.name, rightItem),
+            ),
+          ),
+        ),
+    )
+    const pick = () => candidates[Math.floor(rng() * candidates.length)]
+
+    for (let attempt = 0; attempt < 100; attempt += 1) {
+      const clues: SolverClue[] = Array.from({ length: attempt % 8 }, () => {
+        const type = Math.floor(rng() * 3)
+        if (type === 2) {
+          return { type: 'disjunction', pairings: [pick(), pick()] }
+        }
+        return { type: type === 0 ? 'positive' : 'negative', pairing: pick() }
+      })
+      expect(solve(categories, clues, Infinity).count).toBe(
+        bruteForceCount(categories, clues, Infinity),
+      )
+    }
+  })
+
+  it.each([17, 29, 41])(
+    'independently verifies generated clues for seed %i',
+    (seed) => {
+      const solution = categories[0].items.map((_, index) =>
+        Object.fromEntries(
+          categories.map((category) => [category.name, category.items[index]]),
+        ),
+      )
+      const result = generateClues(
+        {
+          name: 'Oracle fixture',
+          narration: 'Match people, places, and days.',
+          sharedCategories: [],
+          localCategories: categories,
+          solution,
+          options: {
+            difficulty: 'hard',
+            maxClues: 8,
+            allowedClueTypes: ['positive', 'negative', 'disjunction'],
+            seed,
+          },
+        },
+        [],
+      )
+      const clues = result.clues
+        .map(({ clue }) => clue)
+        .filter((clue) => clue.type !== 'cross-category')
+      expect(satisfies(solution, clues)).toBe(true)
+      expect(bruteForceCount(categories, clues)).toBe(1)
+      for (const omitted of clues) {
+        expect(
+          bruteForceCount(
+            categories,
+            clues.filter((clue) => clue !== omitted),
+          ),
+        ).toBe(2)
+      }
+    },
+  )
 })
 
-function bruteForceCount(categories: Category[], clues: SolverClue[]): number {
+function bruteForceCount(
+  categories: Category[],
+  clues: SolverClue[],
+  maxSolutions = 2,
+): number {
   const [anchor, ...remaining] = categories
   const solutions: Solution[] = []
 
@@ -82,7 +157,7 @@ function bruteForceCount(categories: Category[], clues: SolverClue[]): number {
     expand(partial, remaining.slice(1), solutions, clues)
   }
 
-  return Math.min(solutions.length, 2)
+  return Math.min(solutions.length, maxSolutions)
 }
 
 function expand(

@@ -29,7 +29,7 @@ export function loadPuzzleJson(input: string, main: Main): Puzzle {
   return validatePuzzle(value, main.sharedCategories, 'Puzzle')
 }
 
-function validatePuzzle(
+export function validatePuzzle(
   value: unknown,
   sharedCategories: Category[],
   path: string,

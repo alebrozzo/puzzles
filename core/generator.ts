@@ -11,6 +11,7 @@ import {
   type CatalogClue,
 } from './clues/catalog.js'
 import { resolveSeed, createRng } from './random.js'
+import { validatePuzzle } from './loader.js'
 import type { Pairing } from './solver.js'
 import { solve } from './solver.js'
 
@@ -27,106 +28,158 @@ export interface GenerationResult {
 
 type SolverClueType = 'positive' | 'negative' | 'disjunction'
 
-// Which clue types the generator reaches for first at each difficulty, per
-// the plan's "easy -> direct positives; hard -> indirect/negative" design.
 const CLUE_TYPE_PREFERENCE: Record<Difficulty, SolverClueType[]> = {
   easy: ['positive', 'negative', 'disjunction'],
   medium: ['negative', 'positive', 'disjunction'],
   hard: ['disjunction', 'negative', 'positive'],
 }
 
+const MAX_ATTEMPTS = 32
+const MAX_DISJUNCTIONS = 2
+
 export function generateClues(
   puzzle: Puzzle,
   sharedCategories: Category[] | Main,
   defaultSeedSource: string = puzzle.name,
 ): GenerationResult {
+  puzzle = validatePuzzle(
+    puzzle,
+    'sharedCategories' in sharedCategories
+      ? sharedCategories.sharedCategories
+      : sharedCategories,
+    'Puzzle',
+  )
   const categories = resolveCategories(puzzle, sharedCategories)
   const candidates = enumerateCandidates(puzzle, categories)
-  const selected: CatalogClue[] = []
-  const grid = createGrid(categories)
   const seed = resolveSeed(puzzle.options.seed, defaultSeedSource)
   const rng = createRng(seed)
-  let solutionCount = solve(categories).count
+  let best: CatalogClue[] | undefined
 
-  while (solutionCount !== 1) {
-    const bestCandidate = chooseBestCandidate(
-      candidates,
-      selected,
-      grid,
-      puzzle.options.maxClues,
-      puzzle.options.difficulty,
-      rng,
-    )
+  for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt += 1) {
+    const selected: CatalogClue[] = []
+    const grid = createGrid(categories)
+    let solutionCount = solve(categories).count
 
-    if (!bestCandidate) {
-      throw new Error(
-        `Unable to generate a unique solution for puzzle '${puzzle.name}' within ${puzzle.options.maxClues} clues.`,
+    while (solutionCount !== 1) {
+      const candidate = chooseBestCandidate(
+        candidates,
+        selected,
+        grid,
+        puzzle,
+        rng,
       )
+      if (!candidate) {
+        break
+      }
+      selected.push(candidate)
+      applyClueToGrid(grid, candidate)
+      solutionCount = solve(categories, selected.filter(isSolverClue)).count
     }
 
-    selected.push(bestCandidate)
-    applyClueToGrid(grid, bestCandidate)
-    solutionCount = solve(categories, selected.filter(isSolverClue)).count
+    if (solutionCount !== 1) {
+      continue
+    }
+    for (let index = selected.length - 1; index >= 0; index -= 1) {
+      const without = selected.filter((_, clueIndex) => clueIndex !== index)
+      if (solve(categories, without.filter(isSolverClue)).count === 1) {
+        selected.splice(index, 1)
+      }
+    }
+    if (!canSolveByDeduction(categories, selected)) {
+      continue
+    }
+    if (
+      !best ||
+      selected.length < best.length ||
+      (selected.length === best.length &&
+        selected.filter((clue) => clue.type === 'positive').length <
+          best.filter((clue) => clue.type === 'positive').length)
+    ) {
+      best = selected
+    }
+    if (best.length <= 1) {
+      break
+    }
+  }
+
+  if (!best) {
+    throw new Error(
+      `Unable to generate a unique solution for puzzle '${puzzle.name}' within ${puzzle.options.maxClues} clues while meeting clue-quality limits after ${MAX_ATTEMPTS} attempts.`,
+    )
+  }
+
+  for (let index = best.length - 1; index > 0; index -= 1) {
+    const otherIndex = Math.floor(rng() * (index + 1))
+    ;[best[index], best[otherIndex]] = [best[otherIndex], best[index]]
   }
 
   return {
-    clues: selected.map((clue) => ({ clue, description: describeClue(clue) })),
-    solutionCount,
+    clues: best.map((clue) => ({ clue, description: describeClue(clue) })),
+    solutionCount: 1,
     seed,
   }
 }
 
-// OR-clues resolve the most grid cells per clue (they eliminate several
-// items from a row outright), so a naive "most cells resolved" comparison
-// picks them almost every round and crowds out positive/negative clues.
-// Discounting their score before comparing types keeps them in the running
-// (still picked when they are genuinely the most useful move, typically to
-// break a late tie) without letting them dominate the clue set.
-const DISJUNCTION_SCORE_DISCOUNT = 0.5
+function canSolveByDeduction(
+  categories: Category[],
+  clues: CatalogClue[],
+): boolean {
+  if (categories[0].items.length === 1) {
+    return true
+  }
+  const grid = createGrid(categories)
+  let changes: number
+  do {
+    changes = 0
+    for (const clue of clues) {
+      changes += applyClueToGrid(grid, clue)
+    }
+  } while (changes > 0)
+  return [...grid.state.values()].every((state) => state !== 'possible')
+}
 
 function chooseBestCandidate(
   candidates: CatalogClue[],
   selected: CatalogClue[],
   grid: Grid,
-  maxClues: number,
-  difficulty: Difficulty,
+  puzzle: Puzzle,
   rng: () => number,
 ): CatalogClue | undefined {
-  if (selected.length >= maxClues) {
+  if (selected.length >= puzzle.options.maxClues) {
     return undefined
   }
 
   let winner: CatalogClue | undefined
   let winnerScore = 0
 
-  for (const clueType of CLUE_TYPE_PREFERENCE[difficulty]) {
-    const found = bestCandidateOfType(candidates, selected, grid, clueType, rng)
+  for (const clueType of CLUE_TYPE_PREFERENCE[puzzle.options.difficulty]) {
+    const found = bestCandidateOfType(
+      candidates,
+      selected,
+      grid,
+      clueType,
+      puzzle,
+      rng,
+    )
     if (!found) {
       continue
     }
 
-    const discount = clueType === 'disjunction' ? DISJUNCTION_SCORE_DISCOUNT : 1
-    const discountedScore = found.score * discount
-    if (discountedScore > winnerScore) {
+    if (found.score > winnerScore) {
       winner = found.candidate
-      winnerScore = discountedScore
+      winnerScore = found.score
     }
   }
 
   return winner
 }
 
-// Scores each untried candidate of this type by how many grid cells it (plus
-// the deductions it triggers) would resolve, without mutating the shared
-// grid. Only ever returns a candidate that resolves at least one cell, so the
-// caller can fall through to the next preferred clue type otherwise. Ties for
-// the top score are broken with the seeded rng (reservoir sampling) so equally
-// good candidates vary between seeds while staying deterministic per seed.
 function bestCandidateOfType(
   candidates: CatalogClue[],
   selected: CatalogClue[],
   grid: Grid,
   clueType: SolverClueType,
+  puzzle: Puzzle,
   rng: () => number,
 ): { candidate: CatalogClue; score: number } | undefined {
   let best: CatalogClue | undefined
@@ -138,7 +191,38 @@ function bestCandidateOfType(
       continue
     }
 
-    const score = applyClueToGrid(cloneGrid(grid), candidate)
+    if (
+      candidate.type === 'disjunction' &&
+      selected.filter((clue) => clue.type === 'disjunction').length >=
+        MAX_DISJUNCTIONS
+    ) {
+      continue
+    }
+    if (
+      candidate.type === 'positive' &&
+      puzzle.options.difficulty !== 'easy' &&
+      grid.categories.length > 2
+    ) {
+      const row = puzzle.solution.find(
+        (row) =>
+          row[candidate.pairing.left.category] === candidate.pairing.left.item,
+      )!
+      const directFacts = selected.filter(
+        (clue) =>
+          clue.type === 'positive' &&
+          row[clue.pairing.left.category] === clue.pairing.left.item,
+      ).length
+      const limit =
+        puzzle.options.difficulty === 'hard'
+          ? 1
+          : Math.min(2, grid.categories.length - 2)
+      if (directFacts >= limit) {
+        continue
+      }
+    }
+
+    const resolved = applyClueToGrid(cloneGrid(grid), candidate)
+    const score = resolved * (0.7 + rng() * 0.6)
     if (score > bestScore) {
       best = candidate
       bestScore = score
