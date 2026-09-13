@@ -47,7 +47,7 @@ solve to count solutions, iterate until exactly one remains.
 3. **[DONE] Solver** — constraint-propagation + backtracking over the pairwise assignment matrix;
    counts solutions (stop at 2); records deduction trace. **Highest risk — build/test first.**
    (depends on 2)
-4. **[NOT DONE] Flat clue catalog** — templates: positive, negative, disjunction, cross-category links.
+4. **[DONE] Flat clue catalog** — templates: positive, negative, disjunction, cross-category links.
    Each = structured form + static description renderer. (parallel with 3)
 5. **[NOT DONE] Clue generator (scrambler)** — enumerate candidate clues from the solution; greedily
    select a minimal set (add the clue that most reduces remaining possibilities, respecting

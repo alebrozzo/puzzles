@@ -13,18 +13,19 @@ Implemented:
 - Main and puzzle JSON models
 - Validation for categories, shared-category references, solution completeness, and generation options
 - Backtracking solver with positive, negative, and disjunction constraints
+- Flat clue catalog with structured positive, negative, disjunction, and cross-category clues
+- Static clue descriptions and allowed-clue-type checks
 - Solution counting capped at two, so uniqueness can be distinguished from non-uniqueness
 - Independent brute-force oracle test for solver behavior
 - Prettier and ESLint checks in the test pipeline
 
 Next:
 
-1. Add the flat clue catalog with structured operands and static descriptions.
-2. Add the deterministic clue generator that selects a minimal unique clue set.
-3. Assemble Markdown and JSON output.
-4. Wire the CLI and add an example campaign.
+1. Add the deterministic clue generator that selects a minimal unique clue set.
+2. Assemble Markdown and JSON output.
+3. Wire the CLI and add an example campaign.
 
-`cross-category` is part of the public `ClueType` vocabulary, but its exact operand structure and solver support have not been implemented yet.
+`cross-category` is cataloged and rendered, but the solver does not evaluate it yet.
 
 ## Repository Layout
 

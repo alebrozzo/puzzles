@@ -75,6 +75,8 @@ const isUnique = result.count === 1
 
 The current solver supports `positive`, `negative`, and `disjunction` constraints. The `cross-category` clue shape belongs to the upcoming clue catalog and positional extensions.
 
+The clue catalog supports all four public clue types as structured data and provides static descriptions. Cross-category clues are cataloged and rendered, but are not yet accepted by the solver.
+
 ## Validation
 
 The authoritative descriptions of `Main`, `Category`, `Puzzle`, `Solution`, `GenerationOptions`, `Difficulty`, and `ClueType` are the comments in [model.ts](./model.ts). Validation checks category references, item counts and duplicates, solution completeness, bijection across solution rows, and generation options. Invalid input throws an error with the failing field or relationship.
