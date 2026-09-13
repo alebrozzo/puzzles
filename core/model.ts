@@ -44,5 +44,4 @@ export interface Puzzle {
 export interface Main {
   narrativeArch: string
   sharedCategories: Category[]
-  puzzles: Puzzle[] // Puzzles may instead be loaded from separate JSON files.
 }

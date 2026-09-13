@@ -37,21 +37,27 @@ core/
   README.md      Detailed core model and JSON examples
 cli/
   index.ts       CLI entry point; generation wiring is still pending
+examples/
+  main.ts        Typed shared NAME and AGE category catalog
+  kites.ts       Typed Kites puzzle data and category types
 plan.md          Original product plan and implementation sequence
 ```
 
 ## Data Model
 
-The repository uses one main JSON object and one puzzle JSON object per puzzle. The main object contains the narrative arc, reusable category definitions, and optionally embedded puzzle definitions. A puzzle references only the shared categories it uses and can define additional local categories. A puzzle can use no shared categories, but it must contain at least two total categories.
+The repository uses one typed TypeScript main file and one typed TypeScript data file per puzzle. The main file contains the narrative arc and reusable category definitions. A puzzle references only the shared categories it uses and can define additional local categories. A puzzle can use no shared categories, but it must contain at least two total categories.
 
 Load the main catalog first when resolving a standalone puzzle file:
 
 ```ts
-const main = loadMainJson(mainJsonText)
-const puzzle = loadPuzzleJson(puzzleJsonText, main)
+import { kitesPuzzle } from './examples/kites.js'
+import { main } from './examples/main.js'
+
+const sharedCategories = main.sharedCategories
+const puzzle = kitesPuzzle
 ```
 
-Each solution row contains one item from every category used by that puzzle. Every item in each category must appear exactly once across the rows. Categories are limited to six items. The authoritative TypeScript type documentation lives in [core/model.ts](core/model.ts); see [core/README.md](core/README.md) for complete JSON examples and validation details.
+Each solution row contains one item from every category used by that puzzle. Every item in each category must appear exactly once across the rows. Categories are limited to six items. The authoritative TypeScript type documentation lives in [core/model.ts](core/model.ts); see [core/README.md](core/README.md) for complete examples and validation details.
 
 ## Engineering Constraints
 

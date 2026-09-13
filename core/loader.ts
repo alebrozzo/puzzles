@@ -16,14 +16,10 @@ export function loadMainJson(input: string): Main {
     object.sharedCategories,
     'sharedCategories',
   )
-  const puzzles = asArray(object.puzzles, 'puzzles').map((puzzle, index) =>
-    validatePuzzle(puzzle, sharedCategories, `puzzles[${index}]`),
-  )
 
   return {
     narrativeArch: asString(object.narrativeArch, 'narrativeArch'),
     sharedCategories,
-    puzzles,
   }
 }
 

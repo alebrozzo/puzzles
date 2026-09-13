@@ -4,23 +4,6 @@ import { loadMainJson, loadPuzzleJson } from './loader.js'
 const validMain = JSON.stringify({
   narrativeArch: 'A weekend of small adventures.',
   sharedCategories: [{ name: 'People', items: ['Ari', 'Bea'] }],
-  puzzles: [
-    {
-      name: 'Places',
-      narration: 'Match each person to a place.',
-      sharedCategories: ['People'],
-      localCategories: [{ name: 'Places', items: ['Park', 'Cafe'] }],
-      solution: [
-        { People: 'Ari', Places: 'Park' },
-        { People: 'Bea', Places: 'Cafe' },
-      ],
-      options: {
-        difficulty: 'easy',
-        maxClues: 3,
-        allowedClueTypes: ['positive', 'negative'],
-      },
-    },
-  ],
 })
 
 const validPuzzle = JSON.stringify({
@@ -45,7 +28,6 @@ describe('loadPuzzleJson', () => {
     const puzzle = loadPuzzleJson(validPuzzle, main)
 
     expect(main.narrativeArch).toBe('A weekend of small adventures.')
-    expect(main.puzzles).toHaveLength(1)
     expect(puzzle.localCategories[0].name).toBe('Places')
     expect(puzzle.solution).toHaveLength(2)
   })
