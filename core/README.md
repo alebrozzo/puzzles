@@ -90,6 +90,16 @@ const isUnique = result.solutionCount === 1
 
 Cross-category clues are currently cataloged but cannot be selected as the only allowed type because the solver does not evaluate them yet.
 
+## Output
+
+`assemblePuzzleOutput` converts a generated puzzle into Markdown and a structured JSON result. The Markdown contains the narrative arc, puzzle narration, numbered clue descriptions, and uniqueness confirmation. The JSON retains the structured clues, descriptions, solution count, and `unique` flag.
+
+```ts
+import { assemblePuzzleOutput } from './output.js'
+
+const output = assemblePuzzleOutput(main, puzzle, generation)
+```
+
 ## Validation
 
 The authoritative descriptions of `Main`, `Category`, `Puzzle`, `Solution`, `GenerationOptions`, `Difficulty`, and `ClueType` are the comments in [model.ts](./model.ts). Validation checks category references, item counts and duplicates, solution completeness, bijection across solution rows, and generation options. Invalid input throws an error with the failing field or relationship.

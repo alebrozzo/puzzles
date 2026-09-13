@@ -52,7 +52,7 @@ solve to count solutions, iterate until exactly one remains.
 5. **[DONE] Clue generator (scrambler)** — enumerate candidate clues from the solution; greedily
    select a minimal set (add the clue that most reduces remaining possibilities, respecting
    `options`), re-run solver, stop when solution is forced and proven unique. (depends on 3, 4)
-6. **[NOT DONE] Output assembler** — run generator per puzzle; emit `<name>.result.md` (backstory → per
+6. **[DONE] Output assembler** — run generator per puzzle; emit `<name>.result.md` (backstory → per
    puzzle: narration, numbered clues, descriptions, uniqueness confirmation) and `<name>.result.json`. (depends on 5)
 7. **[NOT DONE] CLI command** — `puzzle generate campaign.json [--out dir]`; wire loading → generation →
    output; friendly errors for invalid input or unsatisfiable options. (depends on 6)
