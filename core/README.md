@@ -70,6 +70,28 @@ const puzzle = loadPuzzleJson(puzzleJsonText, main)
 
 `loadPuzzleJson` verifies that every referenced shared category exists in the main file, then validates the puzzle using the referenced shared categories plus its local categories.
 
+## Solver
+
+The solver takes the categories used by a puzzle and structured clues. It searches the bijective assignments, stops after finding two solutions, and returns the solutions found plus a trace.
+
+```ts
+import { solve } from './solver.js'
+
+const result = solve(categories, [
+  {
+    type: 'positive',
+    pairing: {
+      left: { category: 'People', item: 'Ari' },
+      right: { category: 'Places', item: 'Park' },
+    },
+  },
+])
+
+const isUnique = result.count === 1
+```
+
+The current solver supports `positive`, `negative`, and `disjunction` constraints. The `cross-category` clue shape belongs to the upcoming clue catalog and positional extensions.
+
 ## Main Types
 
 ### `Main`
