@@ -17,13 +17,14 @@ Implemented:
 - Static clue descriptions and allowed-clue-type checks
 - Deterministic greedy clue generator with uniqueness checking
 - Markdown and JSON output assembly with uniqueness confirmation
+- CLI generation from typed main and puzzle modules
 - Solution counting capped at two, so uniqueness can be distinguished from non-uniqueness
 - Independent brute-force oracle test for solver behavior
 - Prettier and ESLint checks in the test pipeline
 
 Next:
 
-1. Wire the CLI and add an example campaign.
+1. Add a broader example campaign and end-to-end coverage.
 
 `cross-category` is cataloged and rendered, but the solver does not evaluate it yet.
 
@@ -40,7 +41,7 @@ core/
   *.test.ts      Colocated unit and oracle tests
   README.md      Detailed core model and JSON examples
 cli/
-  index.ts       CLI entry point; generation wiring is still pending
+  index.ts       CLI entry point and result-file writer
 examples/
   main.ts        Typed shared NAME and AGE category catalog
   kites.ts       Typed Kites puzzle data and category types
@@ -83,3 +84,13 @@ The generator will eventually need tests for:
 - Non-uniqueness after removing any one generated clue
 - Deterministic output
 - End-to-end Markdown and JSON generation
+
+## CLI
+
+Generate results from the typed main and puzzle modules:
+
+```sh
+npm run cli -- generate examples/main.ts examples/kites.ts --out output
+```
+
+This writes `output/Kites.result.md` and `output/Kites.result.json`. The main module must export `main`, and a puzzle module named `kites.ts` must export `kitesPuzzle`.

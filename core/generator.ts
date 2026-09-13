@@ -63,7 +63,7 @@ function chooseBestCandidate(
   }
 
   let best: { clue: CatalogClue; solutionCount: number } | undefined
-  let bestReduction = 0
+  let bestReduction = Number.NEGATIVE_INFINITY
 
   for (const candidate of candidates) {
     if (selected.includes(candidate)) {
@@ -127,34 +127,37 @@ function enumerateCandidates(
   if (allowed.includes('disjunction')) {
     for (const [leftCategory, rightCategory] of categoryPairs) {
       for (const leftItem of leftCategory.items) {
-        const rightItems = rightCategory.items.filter((rightItem) =>
-          isPairingInSolution(
-            puzzle.solution,
-            makePairing(leftCategory, leftItem, rightCategory, rightItem),
-          ),
-        )
+        const rightItems = rightCategory.items
         for (let index = 0; index < rightItems.length; index += 1) {
           for (
             let nextIndex = index + 1;
             nextIndex < rightItems.length;
             nextIndex += 1
           ) {
+            const pairings = [
+              makePairing(
+                leftCategory,
+                leftItem,
+                rightCategory,
+                rightItems[index],
+              ),
+              makePairing(
+                leftCategory,
+                leftItem,
+                rightCategory,
+                rightItems[nextIndex],
+              ),
+            ]
+            if (
+              !pairings.some((pairing) =>
+                isPairingInSolution(puzzle.solution, pairing),
+              )
+            ) {
+              continue
+            }
             candidates.push({
               type: 'disjunction',
-              pairings: [
-                makePairing(
-                  leftCategory,
-                  leftItem,
-                  rightCategory,
-                  rightItems[index],
-                ),
-                makePairing(
-                  leftCategory,
-                  leftItem,
-                  rightCategory,
-                  rightItems[nextIndex],
-                ),
-              ],
+              pairings,
             })
           }
         }

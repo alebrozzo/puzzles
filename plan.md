@@ -54,7 +54,7 @@ solve to count solutions, iterate until exactly one remains.
    `options`), re-run solver, stop when solution is forced and proven unique. (depends on 3, 4)
 6. **[DONE] Output assembler** — run generator per puzzle; emit `<name>.result.md` (backstory → per
    puzzle: narration, numbered clues, descriptions, uniqueness confirmation) and `<name>.result.json`. (depends on 5)
-7. **[NOT DONE] CLI command** — `puzzle generate campaign.json [--out dir]`; wire loading → generation →
+7. **[DONE] CLI command** — `puzzle generate main.ts puzzle.ts [--out dir]`; wire loading → generation →
    output; friendly errors for invalid input or unsatisfiable options. (depends on 6)
 8. **[NOT DONE] Example campaign + tests** — family-vacation example (activities puzzle, dinner puzzle)
    as fixture + end-to-end test asserting unique solutions. (depends on 7)

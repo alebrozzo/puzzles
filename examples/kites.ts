@@ -5,7 +5,7 @@ export type KitesShape = 'Bicycle' | 'Car' | 'Motorcycle' | 'Train'
 export type KitesColor = 'Blue' | 'Black' | 'Pink' | 'Green'
 export type KitesCategoryName = SharedCategoryName | 'SHAPE' | 'COLOR'
 
-export interface KitesSolutionRow {
+export interface KitesSolutionRow extends Record<string, string> {
   NAME: KidName
   AGE: KidAge
   SHAPE: KitesShape
@@ -79,7 +79,7 @@ export const kitesPuzzle: KitesPuzzle = {
   ],
   options: {
     difficulty: 'hard',
-    maxClues: 10,
+    maxClues: 40,
     allowedClueTypes: ['positive', 'negative', 'disjunction', 'cross-category'],
   },
 }

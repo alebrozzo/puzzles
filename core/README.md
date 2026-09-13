@@ -100,6 +100,14 @@ import { assemblePuzzleOutput } from './output.js'
 const output = assemblePuzzleOutput(main, puzzle, generation)
 ```
 
+The CLI is responsible for writing these strings to disk. It accepts typed modules directly:
+
+```sh
+npm run cli -- generate examples/main.ts examples/kites.ts --out output
+```
+
+The main module exports `main`; a puzzle module named `kites.ts` exports `kitesPuzzle`.
+
 ## Validation
 
 The authoritative descriptions of `Main`, `Category`, `Puzzle`, `Solution`, `GenerationOptions`, `Difficulty`, and `ClueType` are the comments in [model.ts](./model.ts). Validation checks category references, item counts and duplicates, solution completeness, bijection across solution rows, and generation options. Invalid input throws an error with the failing field or relationship.
