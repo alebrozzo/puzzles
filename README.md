@@ -16,7 +16,7 @@ Implemented:
 - Flat clue catalog with structured positive, negative, disjunction, and cross-category clues
 - Static clue descriptions and allowed-clue-type checks
 - Deterministic greedy clue generator with uniqueness checking
-- Markdown output assembly with uniqueness confirmation
+- Markdown output assembly with a solution table and uniqueness confirmation
 - CLI generation from typed main and puzzle modules
 - Solution counting capped at two, so uniqueness can be distinguished from non-uniqueness
 - Independent brute-force oracle test for solver behavior

@@ -25,24 +25,26 @@ const puzzle: Puzzle = {
 }
 
 describe('assemblePuzzleOutput', () => {
-  it('assembles markdown and structured JSON output', () => {
+  it('assembles markdown and structured output data', () => {
     const output = assemblePuzzleOutput(
       main,
       puzzle,
       generateClues(puzzle, main),
     )
 
-    expect(output.json).toMatchObject({
+    expect(output.data).toMatchObject({
       name: 'Colors',
       narrativeArch: main.narrativeArch,
       narration: puzzle.narration,
       solutionCount: 1,
       unique: true,
     })
-    expect(output.json.clues).toHaveLength(1)
-    expect(output.json.descriptions).toHaveLength(1)
+    expect(output.data.clues).toHaveLength(1)
+    expect(output.data.descriptions).toHaveLength(1)
     expect(output.markdown).toContain('# Colors')
     expect(output.markdown).toContain('## Clues')
+    expect(output.markdown).toContain('| NAME | COLOR |')
+    expect(output.markdown).toContain('| Amelia | Green |')
     expect(output.markdown).toContain('Unique solution: yes')
   })
 

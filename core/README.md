@@ -92,7 +92,7 @@ Cross-category clues are currently cataloged but cannot be selected as the only 
 
 ## Output
 
-`assemblePuzzleOutput` converts a generated puzzle into Markdown and an in-memory structured result. The Markdown contains the narrative arc, puzzle narration, numbered clue descriptions, and uniqueness confirmation. The structured result retains the clues, descriptions, solution count, and `unique` flag for callers that need it; the CLI writes only Markdown.
+`assemblePuzzleOutput` converts a generated puzzle into Markdown and an in-memory structured result. The Markdown contains the narrative arc, puzzle narration, numbered clue descriptions, a results table whose headers come from the solution-row keys, and a uniqueness confirmation. The structured result retains the clues, descriptions, solution rows, solution count, and `unique` flag for callers that need it; the CLI writes only Markdown.
 
 ```ts
 import { assemblePuzzleOutput } from './output.js'
