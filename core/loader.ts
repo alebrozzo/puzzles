@@ -1,7 +1,7 @@
 import type { Category, ClueType, Difficulty, Main, Puzzle } from './model.js'
 
 const MAX_ITEMS = 6
-const MAX_CLUES = 12
+const MAX_CLUES = 30
 const difficulties = new Set<Difficulty>(['easy', 'medium', 'hard'])
 const clueTypes = new Set<ClueType>([
   'positive',
