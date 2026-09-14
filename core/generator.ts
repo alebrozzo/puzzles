@@ -13,7 +13,7 @@ import {
 import { resolveSeed, createRng } from './random.js'
 import { validatePuzzle } from './loader.js'
 import type { Pairing } from './solver.js'
-import { solve } from './solver.js'
+import { createUniquenessChecker } from './uniqueness.js'
 
 export interface GeneratedClue {
   clue: CatalogClue
@@ -37,11 +37,11 @@ const CLUE_TYPE_PREFERENCE: Record<Difficulty, SolverClueType[]> = {
 const MAX_ATTEMPTS = 32
 const MAX_DISJUNCTIONS = 2
 
-export function generateClues(
+export async function generateClues(
   puzzle: Puzzle,
   sharedCategories: Category[] | Main,
   defaultSeedSource: string = puzzle.name,
-): GenerationResult {
+): Promise<GenerationResult> {
   puzzle = validatePuzzle(
     puzzle,
     'sharedCategories' in sharedCategories
@@ -51,6 +51,10 @@ export function generateClues(
   )
   const categories = resolveCategories(puzzle, sharedCategories)
   const candidates = enumerateCandidates(puzzle, categories)
+  const hasUniqueSolution = await createUniquenessChecker(
+    categories,
+    puzzle.solution,
+  )
   const seed = resolveSeed(puzzle.options.seed, defaultSeedSource)
   const rng = createRng(seed)
   let best: CatalogClue[] | undefined
@@ -58,9 +62,9 @@ export function generateClues(
   for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt += 1) {
     const selected: CatalogClue[] = []
     const grid = createGrid(categories)
-    let solutionCount = solve(categories).count
+    let isUnique = false
 
-    while (solutionCount !== 1) {
+    while (!isUnique) {
       const candidate = chooseBestCandidate(
         candidates,
         selected,
@@ -73,15 +77,15 @@ export function generateClues(
       }
       selected.push(candidate)
       applyClueToGrid(grid, candidate)
-      solutionCount = solve(categories, selected.filter(isSolverClue)).count
+      isUnique = await hasUniqueSolution(selected)
     }
 
-    if (solutionCount !== 1) {
+    if (!isUnique) {
       continue
     }
     for (let index = selected.length - 1; index >= 0; index -= 1) {
       const without = selected.filter((_, clueIndex) => clueIndex !== index)
-      if (solve(categories, without.filter(isSolverClue)).count === 1) {
+      if (await hasUniqueSolution(without)) {
         selected.splice(index, 1)
       }
     }
@@ -668,10 +672,4 @@ function isPairingInSolution(
       row[pairing.left.category] === pairing.left.item &&
       row[pairing.right.category] === pairing.right.item,
   )
-}
-
-function isSolverClue(
-  clue: CatalogClue,
-): clue is Exclude<CatalogClue, { type: 'cross-category' }> {
-  return clue.type !== 'cross-category'
 }

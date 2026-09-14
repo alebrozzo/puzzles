@@ -12,7 +12,7 @@ export async function writeGeneratedFiles(
   puzzle: Puzzle,
   puzzlePath: string,
 ): Promise<{ markdownPath: string }> {
-  const generation = generateClues(puzzle, main, basename(puzzlePath))
+  const generation = await generateClues(puzzle, main, basename(puzzlePath))
   const output = assemblePuzzleOutput(main, puzzle, generation)
   const outputBase = resolve(
     dirname(puzzlePath),

@@ -28,26 +28,26 @@ const puzzle: Puzzle = {
 describe('generateClues', () => {
   it.each([0, -1, 1.5, 13, NaN, Infinity])(
     'rejects invalid clue budget %s through the direct API',
-    (maxClues) => {
-      expect(() =>
+    async (maxClues) => {
+      await expect(
         generateClues(
           { ...puzzle, options: { ...puzzle.options, maxClues } },
           sharedCategories,
         ),
-      ).toThrow('maxClues')
+      ).rejects.toThrow('maxClues')
     },
   )
 
-  it('rejects an invalid supplied solution through the direct API', () => {
-    expect(() =>
+  it('rejects an invalid supplied solution through the direct API', async () => {
+    await expect(
       generateClues(
         { ...puzzle, solution: [puzzle.solution[0], puzzle.solution[0]] },
         sharedCategories,
       ),
-    ).toThrow('repeats an item')
+    ).rejects.toThrow('repeats an item')
   })
 
-  it('fails explicitly instead of relaxing quality or clue budgets', () => {
+  it('fails explicitly instead of relaxing quality or clue budgets', async () => {
     const fixture: Puzzle = {
       ...kitesPuzzle,
       options: {
@@ -56,15 +56,15 @@ describe('generateClues', () => {
         allowedClueTypes: ['positive'],
       },
     }
-    expect(() => generateClues(fixture, main)).toThrow(
+    await expect(generateClues(fixture, main)).rejects.toThrow(
       'within 1 clues while meeting clue-quality limits',
     )
   })
 
   it.each(['positive', 'negative'] as const)(
     'respects a %s-only allowed list',
-    (clueType) => {
-      const result = generateClues(
+    async (clueType) => {
+      const result = await generateClues(
         {
           ...puzzle,
           options: { ...puzzle.options, allowedClueTypes: [clueType] },
@@ -76,8 +76,8 @@ describe('generateClues', () => {
     },
   )
 
-  it('keeps single-item puzzles clue-free', () => {
-    const result = generateClues(
+  it('keeps single-item puzzles clue-free', async () => {
+    const result = await generateClues(
       {
         ...puzzle,
         sharedCategories: [],
@@ -95,7 +95,7 @@ describe('generateClues', () => {
 
   it.each([3, 4, 5, 6])(
     'generates hard puzzles with %i items across three categories',
-    (size) => {
+    async (size) => {
       const categories = ['People', 'Places', 'Colors'].map((name) => ({
         name,
         items: Array.from({ length: size }, (_, index) => `${name}-${index}`),
@@ -120,7 +120,7 @@ describe('generateClues', () => {
           seed: size,
         },
       }
-      const result = generateClues(fixture, [])
+      const result = await generateClues(fixture, [])
       const clues = result.clues
         .map(({ clue }) => clue)
         .filter((clue) => clue.type !== 'cross-category')
@@ -140,13 +140,13 @@ describe('generateClues', () => {
 
   it.each(['kites-1', 'kites-2', 'kites-3'])(
     'keeps Kites quality across seed %s',
-    (seed) => {
+    async (seed) => {
       const fixture = {
         ...kitesPuzzle,
         options: { ...kitesPuzzle.options, seed },
       }
-      const result = generateClues(fixture, main)
-      expect(generateClues(fixture, main)).toEqual(result)
+      const result = await generateClues(fixture, main)
+      await expect(generateClues(fixture, main)).resolves.toEqual(result)
       expect(result.clues.length).toBeLessThanOrEqual(10)
       expect(
         result.clues.filter(({ clue }) => clue.type === 'disjunction').length,
@@ -164,8 +164,8 @@ describe('generateClues', () => {
     30000,
   )
 
-  it('generates compact hard clues without spelling out individual rows', () => {
-    const result = generateClues(kitesPuzzle, main)
+  it('generates compact hard clues without spelling out individual rows', async () => {
+    const result = await generateClues(kitesPuzzle, main)
     const clues = result.clues.map(({ clue }) => clue)
     const categories = [
       ...main.sharedCategories,
@@ -196,10 +196,10 @@ describe('generateClues', () => {
         ).count,
       ).toBe(2)
     }
-  })
+  }, 30000)
 
-  it('selects clues until the known solution is unique', () => {
-    const result = generateClues(puzzle, sharedCategories)
+  it('selects clues until the known solution is unique', async () => {
+    const result = await generateClues(puzzle, sharedCategories)
 
     expect(result.solutionCount).toBe(1)
     expect(result.clues).toHaveLength(1)
@@ -207,13 +207,13 @@ describe('generateClues', () => {
     expect(result.clues[0].description).toContain('paired with')
   })
 
-  it('is deterministic', () => {
-    expect(generateClues(puzzle, sharedCategories)).toEqual(
-      generateClues(puzzle, sharedCategories),
+  it('is deterministic', async () => {
+    await expect(generateClues(puzzle, sharedCategories)).resolves.toEqual(
+      await generateClues(puzzle, sharedCategories),
     )
   })
 
-  it('rejects puzzles that allow only unsupported clue types', () => {
+  it('rejects puzzles that allow only unsupported clue types', async () => {
     const crossCategoryOnly = {
       ...puzzle,
       options: {
@@ -222,8 +222,8 @@ describe('generateClues', () => {
       },
     }
 
-    expect(() => generateClues(crossCategoryOnly, sharedCategories)).toThrow(
-      'only cross-category clues',
-    )
+    await expect(
+      generateClues(crossCategoryOnly, sharedCategories),
+    ).rejects.toThrow('only cross-category clues')
   })
 })

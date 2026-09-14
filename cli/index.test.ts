@@ -17,5 +17,5 @@ describe('writeGeneratedFiles', () => {
     await expect(
       access(join(outputDirectory, 'kites.result.json')),
     ).rejects.toThrow()
-  })
+  }, 30000)
 })

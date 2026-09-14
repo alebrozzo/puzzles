@@ -18,12 +18,12 @@ Today they are flying their kites.
 
 ## Results
 
-| NAME      | AGE     | SHAPE      | COLOR |
-| --------- | ------- | ---------- | ----- |
-| Amelia    | 6 years | Car        | Green |
-| Bonifacio | 8 years | Train      | Pink  |
-| Fausto    | 5 years | Motorcycle | Black |
-| Guadalupe | 7 years | Bicycle    | Blue  |
+| NAME | AGE | SHAPE | COLOR |
+| --- | --- | --- | --- |
+| Amelia | 6 years | Car | Green |
+| Bonifacio | 8 years | Train | Pink |
+| Fausto | 5 years | Motorcycle | Black |
+| Guadalupe | 7 years | Bicycle | Blue |
 
 ## Verification
 

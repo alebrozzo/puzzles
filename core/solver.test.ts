@@ -102,13 +102,13 @@ describe('solve', () => {
 
   it.each([17, 29, 41])(
     'independently verifies generated clues for seed %i',
-    (seed) => {
+    async (seed) => {
       const solution = categories[0].items.map((_, index) =>
         Object.fromEntries(
           categories.map((category) => [category.name, category.items[index]]),
         ),
       )
-      const result = generateClues(
+      const result = await generateClues(
         {
           name: 'Oracle fixture',
           narration: 'Match people, places, and days.',

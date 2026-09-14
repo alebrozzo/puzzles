@@ -25,11 +25,11 @@ const puzzle: Puzzle = {
 }
 
 describe('assemblePuzzleOutput', () => {
-  it('assembles markdown and structured output data', () => {
+  it('assembles markdown and structured output data', async () => {
     const output = assemblePuzzleOutput(
       main,
       puzzle,
-      generateClues(puzzle, main),
+      await generateClues(puzzle, main),
     )
 
     expect(output.data).toMatchObject({
@@ -48,8 +48,8 @@ describe('assemblePuzzleOutput', () => {
     expect(output.markdown).toContain('Unique solution: yes')
   })
 
-  it('keeps output deterministic', () => {
-    const generation = generateClues(puzzle, main)
+  it('keeps output deterministic', async () => {
+    const generation = await generateClues(puzzle, main)
     const first = assemblePuzzleOutput(main, puzzle, generation)
     const second = assemblePuzzleOutput(main, puzzle, generation)
 
