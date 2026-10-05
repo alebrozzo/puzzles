@@ -8,6 +8,7 @@ A reusable menu for planning puzzle books. The categories describe the main thin
 - **Ordering and scheduling:** Put events, people, or objects in an order or timetable from relative clues. Can be a compact deduction or a substantial multi-step puzzle.
 - **Truth, lies, and statements:** Determine which statements are true, who is lying, or which claim is consistent with the facts. Depends on careful wording; best when the rules are explicit.
 - **Grouping and classification:** Sort items into groups using shared properties or constraints. Useful for themes, collections, teams, and hidden categories.
+
 - **Assignment and matching:** Pair items using clues, sometimes with fewer categories or a visual board than a full logic grid. Keep enough interacting clues to make the solve satisfying.
 - **Cause-and-effect deduction:** Infer what happened, or which conditions produced an outcome, from a set of facts. Can reveal a story event without centering on suspects.
 

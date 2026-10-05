@@ -4,3 +4,6 @@ Murder weapon:
 - A picture of the study before the murder and a picture after, all made a mess. Find the missing object
 
 Secret passage: SOME of the rooms where the guests were have a passage, use a maze to figure out which ones, then this clue can be used to discard suspects.
+
+Daniel / the doctor was looking for his coat on the smoking room, where he smoke with Alexander earlier in a private conversation
+Alice could smell the smoke from Alexander so she saw him after Daniel the doctor
