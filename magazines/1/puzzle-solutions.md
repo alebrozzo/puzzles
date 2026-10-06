@@ -6,9 +6,9 @@ Working solution tables for the puzzles. These are proposed story values, not lo
 
 | Guest  | Relationship to the host | Location when the body was discovered | What the guest said they were doing |
 | ------ | ------------------------ | ------------------------------------- | ----------------------------------- |
-| Alice  | Business partner         | Library                               | Looking for something to read       |
+| Alice  | Business partner         | Library                               | Reading                             |
 | Robert | Art dealer               | Gallery                               | Examining a painting                |
-| Carl   | Nephew                   | Drawing room                          | Writing a book idea                 |
+| Carl   | Nephew                   | Conservatory                          | Writing and listening to music      |
 | Daniel | Doctor                   | Smoking room                          | Looking for his coat                |
 
 ## Puzzle 2 — Match the place settings
