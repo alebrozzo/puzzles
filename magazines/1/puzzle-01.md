@@ -9,38 +9,12 @@ Solution:
 
 ---
 
-Guest
-------
-
-Alice
-Robert
-Carl  
-Daniel
+Guests: Alice, Robert, Carl, Daniel
+Relationship to the host: Nephew, Art dealer, Doctor, Business partner
+Location when the body was discovered: Gallery, Library, Smoking room, Conservatory
+What the guest said they were doing: Reading, Looking for a coat, Examining a painting, Writing and listening to music
 
 ---
-
-Location when the body was discovered
--------------------------------------
-
-Library  
-Gallery  
-Conservatory  
-Smoking room
-
----
-
-What the guest said they were doing
------------------------------------
-
-Reading  
-Examining a painting  
-Writing and listening to music  
-Looking for his coat
-
----
-
-Narration:
-----------
 
 "I've gathered you all here in the library because I need to know who you are and where you were at the time of the murder. Besides, it seemed to be the room with the most comfortable chairs."
 
@@ -78,7 +52,7 @@ Thorne said nothing. He loved it when suspects talked without being asked. In hi
 
 "Oh, the Picasso isn't in the gallery," the dealer added quickly. "Alexander said a painting with such an exquisite guitar belonged in the conservatory. Personally, I think the Carrington he bought while I was in London would have been better off in there too. I was examining it when I heard the terrible news, and let me tell you, it does not deserve the central spot he gave it in the gallery."
 
-"I'm still chilly. And hungry. Carl, could I borrow your coat?"
+Paying no attention to the dealer's opinions on the Carrington, the old man mumbled, "I'm still chilly. And hungry. Carl, could I borrow your coat?"
 
 "There's no way it would fit you, Daniel. It's tailor-made. And, well... you could stand to follow your own advice and get a bit more exercise, couldn't you?"
 
