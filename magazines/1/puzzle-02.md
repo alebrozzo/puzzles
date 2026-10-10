@@ -23,24 +23,28 @@ Alice is Alexander's "right hand" (this puts her on top left, Alexander's right 
 Narration:
 ----------
 
-"OK, Perkings,", the Detective knew that wasn't his name, but he thought the butler looked like a Perkings, probably because of all the whodunnit books he had read. That was the reason he became a detective after all. " please tell me where the people were sitting during tonight's dinner."
+“Okay, Perkings.” The detective knew that wasn’t his name, but he thought the butler looked like a Perkings, probably because of all the whodunit novels he’d read. That was why he’d become a detective, after all. “Please tell me where everyone was sitting during tonight’s dinner.”
 
-"Well I can tell you as much as I know... however I don't know the guests names to be honest. I mean, I should, but I never cared to actually learn them."
+“Well, I can tell you what I know... though, to be honest, I don’t know the guests’ names. I mean, I probably should, but I’ve never bothered to learn them.”
 
-"I can't blame you, neither are very relatable to the blue collar workers like us" the detective replied with a smirk. "Tell me all you can then."
+“I can’t blame you. They’re hardly relatable to blue-collar workers like us,” the detective replied with a smirk. “Tell me everything you can, then.”
 
-"Well, of course Mr. Vale sat at the head of the table. He wouldn't give up his spot to his mother, if she was still alive. And he wanted his nephew to sit as far as possible from his doctor. His name I know, of course. He came over once a month for Mr. Vale's check up. He was actually healthy but the age was taking its toll."
+“Well, of course, Mr. Vale sat at the head of the table. He wouldn’t have given up his seat to his own mother, if she were still alive. He also wanted his nephew to sit as far away from his doctor as possible. I know the doctor’s name, of course. He came by once a month for Mr. Vale’s checkup. The old man was actually in good health, but age was beginning to take its toll.”
 
-"Why did he wanted them to be sat far apart?" asked Thorn.
+“Why did he want them seated so far apart?” Thorn asked.
 
-"Well, as far as I understand, they don't get along very well. Carl I don't know much of, as he barely comes here and when he does he treats us as if we didn't exist. He only addresses me to remind me that he likes his wine 'just like his uncle takes it'"
+“Well, as far as I understand it, they don’t get along very well. I don’t know much about Carl, as he rarely comes here, and when he does, he treats us as if we don’t exist. The only time he speaks to me is to remind me that he likes his wine ‘just the way his uncle takes it.’”
 
-"OK, you are not giving me much... what else can you tell me?"
+“Okay, you’re not giving me much to work with. What else can you tell me?”
 
-"The art dealer is a celiac!" said someone loudly behind the butler. It was the cook, who was cleaning the cookware as if it was the last time he would see them. It probably was, although the detective would turn his eyes blind if he chose to take them home with him. "I had to change the menu because of him. I managed to get the dinner ready on time with such short notice, and if you don't mind me saying it, it was a goddam good meal, but I still got scolded because I didn't have gluten free bread, can you believe that?"
+“The art dealer is a celiac!” someone called out from behind the butler.
 
-"Yes I can" said Thorn drily, thinking on his own boss. "Any other thing you remember?"
+It was the cook, who was cleaning the cookware as though he’d never see it again. He probably wouldn’t, although the detective would turn a blind eye if the cook decided to take some of it home.
 
-"Well, Mr Vale call Mrs... something, she always made me call her 'Alice' so I don't recall her last name... anyway Mr. Vale called her his 'right hand' and that's why she had that place at the table."
+“I had to change the menu because of him. I managed to get dinner ready on time despite the short notice, and if you don’t mind me saying so, it was a damn good meal. But I still got scolded because I didn’t have any gluten-free bread. Can you believe that?”
 
-"Ha!" almost shouted the detective. "Finally you give me an actual position at the table! And it happened to be what I needed to get the full picture. Thank you Perkings."
+“Yes, I can,” Thorn replied dryly, thinking of his own boss. “Anything else you can remember?”
+
+“Well, Mr. Vale called Mrs... something. She always insisted that I call her ‘Alice,’ so I can’t recall her surname. Anyway, Mr. Vale referred to her as his ‘right hand,’ which is why she had that seat at the table.”
+
+“Ha!” the detective exclaimed, almost shouting. “Finally, an actual seat assignment! And it just so happens to be the one I needed to complete the picture. Thank you, Perkings.”
