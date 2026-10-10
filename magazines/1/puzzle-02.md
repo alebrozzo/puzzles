@@ -45,6 +45,6 @@ It was the cook, who was cleaning the cookware as though he’d never see it aga
 
 “Yes, I can,” Thorn replied dryly, thinking of his own boss. “Anything else you can remember?”
 
-“Well, Mr. Vale called Mrs... something. She always insisted that I call her ‘Alice,’ so I can’t recall her surname. Anyway, Mr. Vale referred to her as his ‘right hand,’ which is why she had that seat at the table.”
+“Well, Mr. Vale called Mrs... something. She always insisted that I call her ‘Alice,’ so I can’t recall her last name. Anyway, Mr. Vale referred to her as his ‘right hand,’ which is why she had that seat at the table.”
 
 “Ha!” the detective exclaimed, almost shouting. “Finally, an actual seat assignment! And it just so happens to be the one I needed to complete the picture. Thank you, Perkings.”
