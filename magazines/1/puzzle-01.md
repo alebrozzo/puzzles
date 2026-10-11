@@ -5,7 +5,7 @@ Solution:
 | Guest  | Relationship to the host | Location when the body was discovered | What the guest said they were doing |
 | ------ | ------------------------ | ------------------------------------- | ----------------------------------- |
 | Alice  | Business partner         | Library                               | Reading                             |
-| Robert | Art dealer               | Gallery                               | Examining a painting                |
+| Robert | Art dealer               | Gallery                               | Examining an art item               |
 | Carl   | Nephew                   | Conservatory                          | Writing and listening to music      |
 | Daniel | Doctor                   | Smoking room                          | Looking for his coat                |
 
@@ -14,7 +14,7 @@ Solution:
 Guests: Alice, Robert, Carl, Daniel
 Relationship to the host: Nephew, Art dealer, Doctor, Business partner
 Location when the body was discovered: Gallery, Library, Smoking room, Conservatory
-What the guest said they were doing: Reading, Looking for a coat, Examining a painting, Writing and listening to music
+What the guest said they were doing: Reading, Looking for a coat, Examining an art item, Writing and listening to music
 
 ---
 

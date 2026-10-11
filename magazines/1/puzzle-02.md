@@ -35,7 +35,7 @@ Narration:
 
 “Well, of course, Mr. Vale sat at the head of the table. He wouldn’t have given up his seat to his own mother, if she were still alive. He also wanted his nephew to sit as far away from his doctor as possible. I know the doctor’s name, of course. He came by once a month for Mr. Vale’s checkup. The old man was actually in good health, but age was beginning to take its toll.”
 
-“Why did he want them seated so far apart?” Thorn asked.
+“Why did he want them seated so far apart?” Thorne asked.
 
 “Well, as far as I understand it, they don’t get along very well. I don’t know much about Carl, as he rarely comes here, and when he does, he treats us as if we don’t exist. The only time he speaks to me is to remind me that he likes his wine ‘just the way his uncle takes it.’”
 
@@ -47,7 +47,7 @@ It was the cook, who was cleaning the cookware as though he’d never see it aga
 
 “I had to change the menu because of him. I managed to get dinner ready on time despite the short notice, and if you don’t mind me saying so, it was a damn good meal. But I still got scolded because I didn’t have any gluten-free bread. Can you believe that?”
 
-“Yes, I can,” Thorn replied dryly, thinking of his own boss. “Anything else you can remember?”
+“Yes, I can,” Thorne replied dryly, thinking of his own boss. “Anything else you can remember?”
 
 “Well, Mr. Vale called Mrs... something. She always insisted that I call her ‘Alice,’ so I can’t recall her last name. Anyway, Mr. Vale referred to her as his ‘right hand,’ which is why she had that seat at the table.”
 
