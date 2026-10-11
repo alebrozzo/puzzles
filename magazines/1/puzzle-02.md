@@ -1,3 +1,5 @@
+## Puzzle 2 — Match the place settings
+
 Solution:
 
 | Guest     | Seat         | Bread    | Glass        |

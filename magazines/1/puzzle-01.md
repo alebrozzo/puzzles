@@ -1,3 +1,5 @@
+## Puzzle 1 — The body is discovered
+
 Solution:
 
 | Guest  | Relationship to the host | Location when the body was discovered | What the guest said they were doing |
@@ -15,6 +17,9 @@ Location when the body was discovered: Gallery, Library, Smoking room, Conservat
 What the guest said they were doing: Reading, Looking for a coat, Examining a painting, Writing and listening to music
 
 ---
+
+Narration:
+----------
 
 "I've gathered you all here in the library because I need to know who you are and where you were at the time of the murder. Besides, it seemed to be the room with the most comfortable chairs."
 

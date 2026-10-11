@@ -25,18 +25,22 @@ The reader matches each guest to a place setting. More than one setting shares a
 
 This is a provisional answer table. The settings can be changed; the important design constraint is that individual attributes overlap, so no guest is identified by a single giveaway detail. We give away Alexander's position at the head, at some point we mention Alice being his left hand. We can say Carl is Celiac for the clue of not having bread (it could work with no butter knife because he is lactose intolerant or similar approach that can be easily drawn in the picture and clear to the reader).
 
-## Puzzle 3 — Detective's findings
+## Puzzle 3 — Missing weapon
 
-| Guest  | Possible motive                                | Evidence found by the detective                                | Where the evidence was found      |
-| ------ | ---------------------------------------------- | -------------------------------------------------------------- | --------------------------------- |
-| Alice  | Vale was cutting her out of their business     | A letter to the board of directors                             | Desk drawer                       |
-| Robert | Sold Vale a forged painting                    | An appraisal of a painting claiming it's not an original       | Inside a folder in a file cabinet |
-| Carl   | Vale would retract a false alibi               | A newspaper clipping with a handwritten correction on the back | Pants front pocket                |
-| Daniel | Needed funds that Vale would leave in his will | Vale's will                                                    | Inside the safe                   |
+A few pictures of the study a couple weeks before the murder vs when the body was found. We have to find what is now missing. The new pictures can be with a mess on the place (not really coherent with the story unless we can say the murderer was looking for something, but then we need to explain how the detective found the 4 incriminating clues) or a rearrangement of things.
+
+## Puzzle 4 — Detective's findings
+
+| Guest  | Possible motive                                | Evidence found by the detective                          | Where the evidence was found      |
+| ------ | ---------------------------------------------- | -------------------------------------------------------- | --------------------------------- |
+| Alice  | Vale was cutting her out of their business     | A letter to the board of directors                       | Desk drawer                       |
+| Robert | Sold Vale a forged painting                    | An appraisal of a painting claiming it's not an original | Inside a folder in a file cabinet |
+| Carl   | Vale would retract a false alibi               | A newspaper clipping with a handwritten text on the back | Pants front pocket                |
+| Daniel | Needed funds that Vale would leave in his will | Vale's will                                              | Inside the safe                   |
 
 Later on we will say that the newspaper clipping was on his pocket because he showed it to Carl saying he'd be retracting his statement
 
-## Puzzle 4 — The host's private encounters
+## Puzzle 5 — The host's private encounters
 
 The reader cross-references details in the guests' accounts with household records to place each private encounter between two timed events. The clues should overlap, so no single account or record gives away an encounter's position by itself. The answer is the order of encounters, not an exact time for every conversation.
 
