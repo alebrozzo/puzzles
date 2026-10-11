@@ -16,7 +16,7 @@ Later on we will say that the newspaper clipping was on his pocket because he sh
 Guests: Alice, Robert, Carl, Daniel
 Possible motives: losing business, Retract alibi, Needed money, Forged piece of art
 Evidence: Letter, Will, Newspaper clipping, Certificate
-Where was the evidence found: Safe, Desk, Cabinet, Clothing
+Where was the evidence found: Safe, Desk, Cabinet, Pants pocket
 
 ---
 
