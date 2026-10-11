@@ -18,6 +18,8 @@ Carl likes his wine like his uncle (Alexander but don't say his name).
 Daniel was as far as possible from Carl, they hate each other (so diagonally from Carl).
 Alice is Alexander's "right hand" (this puts her on top left, Alexander's right hand).
 
+Image clue:
+magazines/1/puzzle-02 table clue.png
 ---
 
 Narration:
