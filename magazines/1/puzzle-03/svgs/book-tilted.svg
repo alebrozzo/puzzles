@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="114" height="174" viewBox="0 0 114 174" fill="none">
+  <title>Hand-drawn tilted book</title>
+  <desc>A single closed book viewed spine-on, leaning to the right, with a blank spine and a narrow visible cover edge. White surfaces have charcoal outlines, with a transparent background and no surrounding objects.</desc>
+  <g stroke="#45433f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 26 L38 18 C40 17 42 18 43 21 L98 151 L73 155 Z" fill="#fff"/>
+    <path d="M17 26 L22 29 L77 154 M22 29 L43 21" stroke-width="1.2"/>
+    <path d="M77 150 L95 147" stroke-width="1"/>
+  </g>
+</svg>

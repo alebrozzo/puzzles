@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 620 620" fill="none">
+  <title>Hand-drawn open scissors</title>
+  <desc>A pair of open scissors angled upward to the right, with two pointed blades, rounded finger loops, and a circular pivot. White surfaces have charcoal outlines, with transparent finger openings and background.</desc>
+  <g transform="translate(10 10)" stroke="#45433f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#fff" fill-rule="evenodd" d="M175 308 C161 282 138 264 111 262 C79 257 48 272 27 296 C5 321 1 349 8 377 C16 410 44 431 77 433 C111 436 143 420 164 394 C174 381 181 365 184 348 L270 310 C285 304 294 312 299 324 L347 307 C405 265 469 215 525 169 C560 140 588 113 593 87 C572 96 548 111 522 125 L397 194 L287 250 Z M136 307 C119 287 90 286 66 303 C42 318 29 340 35 365 C40 393 65 406 88 401 C116 398 140 378 150 353 C156 335 149 320 136 307 Z"/>
+    <path fill="#fff" fill-rule="evenodd" d="M287 250 L424 46 C440 23 456 12 472 9 C477 8 476 12 474 17 L298 422 C322 440 337 465 337 492 C338 526 320 558 293 577 C266 596 235 596 210 584 C183 572 166 546 165 518 C163 489 176 460 197 440 C214 424 234 415 257 411 L299 324 C296 316 288 311 282 300 C274 286 276 265 287 250 Z M291 458 C271 439 246 441 224 455 C201 471 187 498 196 527 C204 552 230 566 255 559 C281 553 299 530 305 506 C310 487 304 472 291 458 Z"/>
+    <circle cx="323" cy="273" r="15" fill="#fff"/>
+    <path d="M319 268 C323 265 328 268 329 272" stroke-width="2.2"/>
+  </g>
+</svg>

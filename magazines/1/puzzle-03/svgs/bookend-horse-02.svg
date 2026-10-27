@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="250" height="260" viewBox="0 0 250 260" fill="none">
+  <title>White horse-head bookend</title>
+  <desc>A single left-facing horse-head bookend with a pointed ear, arched neck, a flowing mane with outlined locks, and an outlined bridle. A tall vertical book-support plate stands behind the horse and joins a flat rectangular base. All enclosed shapes are white, without shading, hatching, or dark fills. Charcoal outlines sit against a transparent background, with no books or surrounding objects.</desc>
+  <g fill="#fff" stroke="#45433f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M37 226 H228 L237 243 H28 Z"/>
+    <path d="M29 240 H235" fill="none" stroke-width="1.1"/>
+    <path d="M222 46 L228 50 V226 H222 Z"/>
+    <path d="M201 46 H222 V226 H201 Z"/>
+    <path d="M82 21 C92 27 100 39 111 46 C133 56 160 65 177 87 C198 114 198 151 198 183 L198 226 H67 C73 212 87 189 100 167 C106 157 105 149 98 148 C89 147 80 157 70 164 C59 173 49 177 39 177 C26 181 17 174 15 163 C13 154 18 146 25 138 L48 109 L72 77 C85 62 86 43 82 21 Z"/>
+    <path d="M111 46 C127 49 142 56 153 64 L149 64 C164 69 175 80 183 92 L179 91 C191 103 198 118 200 131 L195 128 C203 142 206 158 205 171 L201 167 C207 181 208 196 205 207 L201 203 L204 226 H190 C187 190 189 153 183 126 C178 101 165 83 140 71 C125 64 114 57 111 46 Z" stroke-width="1.8"/>
+    <path d="M127 63 C138 63 148 69 156 76 M153 79 C168 84 179 98 184 111 M174 105 C186 117 192 132 193 146 M184 139 C194 153 197 168 196 181 M188 177 C195 191 198 207 197 223" fill="none" stroke-width="1.2"/>
+    <path d="M88 31 C92 48 93 58 86 72 L101 62 Z" stroke-width="1.4"/>
+    <path d="M104 71 C114 92 116 118 106 142" fill="none" stroke-width="1.4"/>
+    <path d="M99 77 L105 75 C115 94 118 115 112 139 L106 142 C111 115 109 96 99 77 Z" stroke-width="1.5"/>
+    <path d="M49 109 C59 112 69 121 76 132 L71 137 C64 126 55 118 45 115 Z" stroke-width="1.5"/>
+    <path d="M74 130 L110 109 L112 116 L78 137 Z" stroke-width="1.5"/>
+    <ellipse cx="109" cy="113" rx="4" ry="5" stroke-width="1.3"/>
+    <path d="M77 91 C82 86 90 86 95 90 C91 96 83 97 77 91 Z" stroke-width="1.5"/>
+    <ellipse cx="85" cy="91" rx="2.3" ry="3" stroke-width="1.2"/>
+    <path d="M76 85 C82 81 90 82 95 85" fill="none" stroke-width="1.2"/>
+    <path d="M29 151 C24 150 22 157 24 161 C28 164 32 155 29 151 Z" stroke-width="1.4"/>
+    <path d="M20 169 C31 173 40 170 46 165 C50 162 56 160 62 160" fill="none" stroke-width="1.4"/>
+    <path d="M43 174 C44 168 48 164 52 162" fill="none" stroke-width="1.2"/>
+    <path d="M119 137 C125 153 120 175 110 192 C102 206 96 215 93 224" fill="none" stroke-width="1.5"/>
+    <path d="M70 226 H197" fill="none" stroke-width="1.2"/>
+  </g>
+</svg>

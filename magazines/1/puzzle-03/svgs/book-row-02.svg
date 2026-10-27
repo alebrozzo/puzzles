@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="240" viewBox="0 0 300 240" fill="none">
+  <title>Hand-drawn upright book row</title>
+  <desc>A close-packed row of nine upright books with blank spines, gently rounded tops, and varied heights and widths. White surfaces have charcoal outlines, with a transparent background and no shelf, lettering, or surrounding objects.</desc>
+  <g stroke="#45433f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 29 C24 27 30 27 36 29 L38 211 L20 210 Z" fill="#fff"/>
+    <path d="M25 29 L27 210" stroke-width="1.1"/>
+    <path d="M36 29 C45 24 56 24 65 28 L68 212 L38 211 Z" fill="#fff"/>
+    <path d="M65 28 C76 30 87 30 98 27 L100 213 L68 212 Z" fill="#fff"/>
+    <path d="M72 30 L75 212" stroke-width="1.1"/>
+    <path d="M98 27 C108 23 119 23 130 28 L132 214 L100 213 Z" fill="#fff"/>
+    <path d="M130 40 C139 39 150 41 158 45 L160 215 L132 214 Z" fill="#fff"/>
+    <path d="M158 51 C166 50 176 52 184 56 L185 216 L160 215 Z" fill="#fff"/>
+    <path d="M184 45 C193 41 203 40 212 43 L214 217 L185 216 Z" fill="#fff"/>
+    <path d="M191 44 L192 216" stroke-width="1.1"/>
+    <path d="M212 43 C222 39 236 39 246 43 L247 218 L214 217 Z" fill="#fff"/>
+    <path d="M219 44 L221 217" stroke-width="1.1"/>
+    <path d="M246 70 C256 66 267 67 276 71 L279 219 L247 218 Z" fill="#fff"/>
+    <path d="M270 70 L273 218" stroke-width="1.1"/>
+  </g>
+</svg>

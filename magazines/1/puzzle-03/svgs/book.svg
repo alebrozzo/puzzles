@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="270" height="150" viewBox="0 0 270 150" fill="none">
+  <title>Hand-drawn closed book</title>
+  <desc>A plain closed hardcover book lying flat in three-quarter view, with a broad blank cover, a rounded spine on the left, and a visible page block along the front and right. White surfaces have charcoal outlines, with a transparent background and no lettering or surrounding objects.</desc>
+  <g stroke="#45433f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 91 L78 24 L248 23 L253 48 L211 123 L21 124 C15 122 13 103 17 91 Z" fill="#fff"/>
+    <path d="M205 89 L247 27 L249 48 L210 119 L204 120 C200 112 201 98 205 89 Z" fill="#fff"/>
+    <path d="M209 94 L244 41 M211 105 L244 49" stroke-width="1"/>
+    <path d="M21 88 L205 88 C201 96 200 110 205 119 L21 120 C17 115 16 96 21 88 Z" fill="#fff"/>
+    <path d="M25 115 L199 114" stroke-width="1"/>
+    <path d="M17 89 L77 20 L250 18 L207 89 Z" fill="#fff"/>
+    <path d="M24 85 L82 23" stroke-width="1.2"/>
+    <path d="M17 89 C11 96 12 116 17 122 C18 124 20 124 23 124 L209 123" stroke-width="2.2"/>
+  </g>
+</svg>

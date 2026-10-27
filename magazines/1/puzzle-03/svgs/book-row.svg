@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="220" viewBox="0 0 300 220" fill="none">
+  <title>Hand-drawn row of books</title>
+  <desc>A group of five upright books of varying heights with a sixth book leaning to the right, all with blank spines. White surfaces have charcoal outlines, with a transparent background and no shelf or surrounding objects.</desc>
+  <g stroke="#45433f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(185 42)">
+      <path d="M17 26 L38 18 C40 17 42 18 43 21 L98 151 L73 155 Z" fill="#fff"/>
+      <path d="M17 26 L22 29 L77 154 M22 29 L43 21" stroke-width="1.2"/>
+      <path d="M77 150 L95 147" stroke-width="1"/>
+    </g>
+    <path d="M160 54 C173 52 185 53 196 57 L205 196 L168 194 Z" fill="#fff"/>
+    <path d="M191 57 L200 195" stroke-width="1.2"/>
+    <path d="M126 35 C137 33 148 34 158 38 L167 194 L136 193 Z" fill="#fff"/>
+    <path d="M102 36 L124 37 L135 193 L111 192 Z" fill="#fff"/>
+    <path d="M67 35 C78 32 91 33 101 36 L110 192 L76 191 Z" fill="#fff"/>
+    <path d="M20 27 C31 24 48 25 57 29 L62 32 L75 191 L30 188 Z" fill="#fff"/>
+    <path d="M57 29 L70 190" stroke-width="1.2"/>
+  </g>
+</svg>

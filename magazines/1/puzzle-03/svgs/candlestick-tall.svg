@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="380" viewBox="0 0 140 380" fill="none">
+  <title>Hand-drawn tall empty candlestick</title>
+  <desc>A tall traditional candlestick with an empty candle socket, a flared drip cup, an elongated turned spindle, rounded ornamental collars, and a wide oval pedestal base. White surfaces have charcoal outlines, with a transparent background and no candle or surrounding objects.</desc>
+  <g stroke="#45433f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 344 C17 335 41 328 70 328 C99 328 123 335 123 344 L123 350 C123 359 99 365 70 365 C41 365 17 359 17 350 Z" fill="#fff"/>
+    <path d="M18 345 C24 354 51 357 70 357 C91 357 116 353 122 346" stroke-width="1.2"/>
+    <path d="M59 297 C59 310 56 320 49 327 C45 331 37 332 32 336 C29 339 34 342 40 343 C57 347 83 347 100 343 C106 342 111 339 108 336 C103 332 95 331 91 327 C84 320 81 310 81 297 Z" fill="#fff"/>
+    <path d="M48 328 C56 332 83 333 92 328" stroke-width="1.2"/>
+    <path d="M57 275 C51 281 49 289 52 296 C55 304 63 308 70 308 C77 308 85 304 88 296 C91 289 89 281 83 275 Z" fill="#fff"/>
+    <path d="M57 267 C56 272 54 275 51 277 C52 281 61 284 70 284 C79 284 88 281 89 277 C86 275 84 272 83 267 Z" fill="#fff"/>
+    <path d="M56 93 C61 113 62 140 61 169 C60 200 54 231 56 250 C56 257 58 262 59 265 C62 272 78 272 81 265 C82 262 84 257 84 250 C86 231 80 200 79 169 C78 140 79 113 84 93 Z" fill="#fff"/>
+    <path d="M60 258 C64 261 76 261 80 258" stroke-width="1.2"/>
+    <path d="M62 69 C61 78 58 81 50 85 C47 87 48 90 52 92 C61 97 79 97 88 92 C92 90 93 87 90 85 C82 81 79 78 78 69 Z" fill="#fff"/>
+    <path d="M44 35 C46 44 53 47 57 53 C61 59 57 65 61 69 C65 73 75 73 79 69 C83 65 79 59 83 53 C87 47 94 44 96 35 Z" fill="#fff"/>
+    <ellipse cx="70" cy="35" rx="31" ry="6" fill="#fff"/>
+    <ellipse cx="70" cy="34" rx="14" ry="3" fill="#fff" stroke-width="1.3"/>
+    <path d="M56 34 C60 32 80 32 84 34" stroke-width="1"/>
+  </g>
+</svg>
