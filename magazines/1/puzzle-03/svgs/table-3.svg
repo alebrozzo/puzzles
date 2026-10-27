@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="390" viewBox="0 0 440 390" fill="none">
+  <title>Hand-drawn two-drawer table</title>
+  <desc>A small two-drawer table in three-quarter view, with a bare rectangular top, a plain left side, two inset drawers with oval pulls, and four tapered legs. White surfaces have charcoal outlines, with a transparent background and no lettering or surrounding objects.</desc>
+  <g fill="#fff" stroke="#45433f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 188 L75 200 L50 327 L40 331 L32 327 Z"/>
+    <path d="M55 199 L40 331" fill="none" stroke-width="1.3"/>
+    <path d="M244 211 L279 206 L272 284 L261 287 L253 283 Z"/>
+    <path d="M262 211 L261 287" fill="none" stroke-width="1.3"/>
+    <path d="M355 190 L398 184 V327 L387 331 L377 327 Z"/>
+    <path d="M377 191 L387 331" fill="none" stroke-width="1.3"/>
+    <path d="M145 218 L192 218 L176 370 L166 373 L156 369 Z"/>
+    <path d="M165 228 L166 373" fill="none" stroke-width="1.3"/>
+    <path d="M32 72 L165 107 V237 L32 198 Z"/>
+    <path d="M165 107 L398 68 V198 L165 237 Z"/>
+    <g transform="matrix(1 -.17 0 1 190 121)">
+      <path d="M0 0 H184 V98 H0 Z"/>
+      <path d="M5 5 H179 V45 H5 Z" stroke-width="1.5"/>
+      <path d="M5 54 H179 V93 H5 Z" stroke-width="1.5"/>
+      <path d="M0 48 H184 V51 H0 Z" stroke-width="1.5"/>
+      <ellipse cx="96" cy="25" rx="19" ry="6" stroke-width="1.8"/>
+      <ellipse cx="96" cy="74" rx="19" ry="6" stroke-width="1.8"/>
+    </g>
+    <path d="M20 57 L165 97 V112 L20 72 Z"/>
+    <path d="M165 97 L410 57 V72 L165 112 Z"/>
+    <path d="M20 57 L260 20 L410 57 L165 97 Z"/>
+  </g>
+</svg>

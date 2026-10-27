@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="340" viewBox="0 0 320 340" fill="none">
+  <title>Hand-drawn bare table</title>
+  <desc>A small traditional rectangular table in three-quarter view, with a bare tabletop, a plain apron, and four slender tapered legs with simple collars on the front pair. White surfaces have charcoal outlines, with a transparent background and no objects, nearby furniture, floor, or other surroundings.</desc>
+  <g stroke="#45433f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M76 53 L92 54 L87 279 L77 279 Z" fill="#fff"/>
+    <path d="M81 111 L82 277" stroke-width="1"/>
+    <path d="M268 55 L283 49 L278 285 L267 285 Z" fill="#fff"/>
+    <path d="M273 110 L272 283" stroke-width="1"/>
+    <path d="M249 84 L281 53 L280 84 L249 116 Z" fill="#fff"/>
+    <path d="M58 76 L249 84 L249 116 L58 108 Z" fill="#fff"/>
+    <path d="M38 113 L58 114 L54 320 L44 320 Z" fill="#fff"/>
+    <path d="M43 123 L48 318" stroke-width="1"/>
+    <path d="M38 75 L58 76 L58 114 L38 113 Z" fill="#fff"/>
+    <path d="M38 113 L58 114 L58 120 L38 119 Z" fill="#fff" stroke-width="1.5"/>
+    <path d="M249 122 L269 123 L265 326 L255 326 Z" fill="#fff"/>
+    <path d="M254 132 L259 324" stroke-width="1"/>
+    <path d="M249 84 L269 85 L269 123 L249 122 Z" fill="#fff"/>
+    <path d="M249 122 L269 123 L269 129 L249 128 Z" fill="#fff" stroke-width="1.5"/>
+    <path d="M278 78 L292 40 L292 48 L278 86 Z" fill="#fff"/>
+    <path d="M24 66 L278 78 L278 86 L24 74 Z" fill="#fff"/>
+    <path d="M24 66 L59 35 L292 40 L278 78 Z" fill="#fff"/>
+  </g>
+</svg>

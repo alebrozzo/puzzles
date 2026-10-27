@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="380" viewBox="0 0 360 380" fill="none">
+  <title>Hand-drawn tall single-drawer table</title>
+  <desc>A straight-on view of a simple table with a bare rectangular top, one broad inset drawer, a round knob, and long gently tapered legs with small foot bands. The legs extend well below the drawer. White surfaces have charcoal outlines, with a transparent background and no objects or surroundings.</desc>
+  <g fill="#fff" stroke="#45433f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M62 38 H298 V147 H62 Z"/>
+    <path d="M34 38 H62 V147 L58 360 H38 L34 147 Z"/>
+    <path d="M298 38 H326 V147 L322 360 H302 L298 147 Z"/>
+    <path d="M37.5 334 H58.5 M301.5 334 H322.5" fill="none" stroke-width="2"/>
+    <rect x="70" y="48" width="220" height="89" rx="3"/>
+    <circle cx="180" cy="92.5" r="16"/>
+    <circle cx="185" cy="88" r="4.5" stroke-width="2"/>
+    <rect x="18" y="22" width="324" height="16" rx="3"/>
+  </g>
+</svg>
