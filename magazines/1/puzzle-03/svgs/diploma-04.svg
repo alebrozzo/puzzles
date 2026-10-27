@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="700" viewBox="0 0 280 350" fill="none">
+  <title>Arched botanical framed diploma</title>
+  <desc>A portrait diploma in a rounded arch frame with botanical corner decorations, an abstract heading, writing rules, and a ribbon medallion. No readable text. Transparent background.</desc>
+  <g stroke="#111" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 330 V83 C20 37 74 13 140 13 C206 13 260 37 260 83 V330 Z" fill="#fff" stroke-width="4"/>
+    <path d="M28 322 V84 C28 44 79 21 140 21 C201 21 252 44 252 84 V322 Z" stroke-width="1.2"/>
+    <path d="M39 311 V87 C39 54 84 33 140 33 C196 33 241 54 241 87 V311 Z" stroke-width="2.5"/>
+    <path d="M49 301 V90 C49 61 89 44 140 44 C191 44 231 61 231 90 V301 Z" stroke-width="1"/>
+    <path d="M59 123 C62 99 80 81 103 77 M221 123 C218 99 200 81 177 77" stroke-width="1.3"/>
+    <path d="M63 109 Q51 97 64 92 Q69 100 63 109 Z M72 95 Q66 80 79 80 Q82 89 72 95 Z M85 84 Q84 69 96 73 Q96 82 85 84 Z M217 109 Q229 97 216 92 Q211 100 217 109 Z M208 95 Q214 80 201 80 Q198 89 208 95 Z M195 84 Q196 69 184 73 Q184 82 195 84 Z" fill="#fff" stroke-width="1.1"/>
+    <path d="M123 71 Q130 57 140 65 Q150 57 157 71 Q150 85 140 92 Q130 85 123 71 Z" stroke-width="1.5"/>
+    <path d="M140 68 V86 M130 71 L140 79 L150 71" stroke-width="1"/>
+    <path d="M88 116 Q140 103 192 116 M101 125 Q140 116 179 125" stroke-width="3"/>
+    <path d="M72 151 H208 M81 162 H199 M72 173 H208 M72 184 H208 M89 195 H191" stroke-width="1.4"/>
+    <path d="M109 215 H171" stroke-width="1"/>
+    <path d="M131 250 L119 281 L132 276 L139 286 L144 253 M146 250 L155 281 L162 271 L174 275 L160 245" fill="#fff" stroke-width="1.5"/>
+    <circle cx="143" cy="242" r="19" fill="#fff" stroke-width="1.8"/>
+    <circle cx="143" cy="242" r="14" stroke-width=".9"/>
+    <path d="M143 232 L146 239 L153 239 L148 244 L150 251 L143 247 L136 251 L138 244 L133 239 L140 239 Z" stroke-width="1"/>
+    <path d="M67 285 H106 M181 285 H213 M71 280 C82 265 76 291 87 278 S96 285 103 277 M183 279 C194 266 188 289 199 277 S207 282 212 276" stroke-width="1"/>
+    <path d="M55 309 L65 317 M215 317 L225 309" stroke-width="1"/>
+  </g>
+</svg>

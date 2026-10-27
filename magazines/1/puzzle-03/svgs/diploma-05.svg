@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="560" viewBox="0 0 360 280" fill="none">
+  <title>Oval-mat framed diploma</title>
+  <desc>A landscape diploma displayed through an oval mat in a rectangular frame, with beaded molding, decorative flourishes, abstract writing rules, and an embossed seal. No readable text. Transparent background.</desc>
+  <g stroke="#111" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 16 H344 V264 H16 Z" fill="#fff" stroke-width="4"/>
+    <path d="M24 24 H336 V256 H24 Z M37 37 H323 V243 H37 Z" stroke-width="1.4"/>
+    <path d="M30 30 H330 V250 H30 Z" stroke-width="2.2" stroke-dasharray=".1 6" stroke-linecap="round"/>
+    <path d="M16 16 L37 37 M344 16 L323 37 M344 264 L323 243 M16 264 L37 243" stroke-width="1"/>
+    <ellipse cx="180" cy="140" rx="134" ry="94" stroke-width="2.5"/>
+    <ellipse cx="180" cy="140" rx="128" ry="88" stroke-width=".9"/>
+    <path d="M158 77 C149 66 138 77 147 82 C154 85 159 77 167 78 H193 C201 77 206 85 213 82 C222 77 211 66 202 77 M174 75 L180 69 L186 75 L180 81 Z" stroke-width="1.2"/>
+    <path d="M120 99 H240 M136 107 H224" stroke-width="3"/>
+    <path d="M84 128 H276 M79 138 H281 M87 148 H273 M104 158 H256" stroke-width="1.3"/>
+    <path d="M109 189 H155 M205 189 H251 M113 183 C123 168 117 195 130 180 S142 190 150 179 M209 183 C220 169 214 194 228 179 S240 188 247 179" stroke-width="1"/>
+    <path d="M180 180 L184 184 L190 183 L192 189 L198 192 L195 198 L197 204 L191 207 L188 213 L182 211 L176 214 L172 209 L166 209 L165 203 L160 199 L164 193 L163 187 L170 186 L174 180 Z" fill="#fff" stroke-width="1.5"/>
+    <circle cx="179" cy="197" r="11" stroke-width=".9"/>
+    <path d="M174 197 L179 192 L184 197 L179 202 Z" stroke-width="1"/>
+    <path d="M53 58 C53 49 67 49 67 58 C67 65 57 69 52 75 M307 58 C307 49 293 49 293 58 C293 65 303 69 308 75 M53 222 C53 231 67 231 67 222 C67 215 57 211 52 205 M307 222 C307 231 293 231 293 222 C293 215 303 211 308 205" stroke-width="1.1"/>
+  </g>
+</svg>

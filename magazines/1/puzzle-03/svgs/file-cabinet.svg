@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="350" viewBox="0 0 220 350" fill="none">
+  <title>Hand-drawn three-drawer filing cabinet</title>
+  <desc>An isolated filing cabinet in three-quarter view, with a plain left side, three closed drawers, inset label holders, and curved pull handles. White surfaces have charcoal outlines. The background is transparent, with no surrounding objects.</desc>
+  <defs>
+    <g id="drawer" stroke="#45433f" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0 H101 V87 H0 Z" fill="#fff" stroke-width="1.8"/>
+      <path d="M39 17 H63 V35 H39 Z" fill="#fff" stroke-width="1.5"/>
+      <path d="M42 20 H60 V32 H42 Z" stroke-width="1"/>
+      <path d="M33 59 L38 59 L38 62 C46 64 58 64 66 62 L66 59 L71 59 L71 65 L66 65 C56 68 45 67 38 65 L33 65 Z" fill="#fff" stroke-width="1.5"/>
+      <path d="M36 60 V64 M68 60 V64" stroke-width=".9"/>
+    </g>
+  </defs>
+  <g stroke="#45433f" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 18 L133 10 L202 21 L87 32 Z" fill="#fff" stroke-width="2.4"/>
+    <path d="M18 18 L87 32 L87 333 L18 307 Z" fill="#fff" stroke-width="2.4"/>
+    <path d="M87 32 L202 21 L202 309 L87 333 Z" fill="#fff" stroke-width="2.4"/>
+    <path d="M18 27 L87 41 L202 30 M22 29 L22 300" stroke-width="1.2"/>
+    <g transform="matrix(1 -.105 0 1 94 47)">
+      <use href="#drawer"/>
+    </g>
+    <g transform="matrix(1 -.145 0 1 94 140)">
+      <use href="#drawer"/>
+    </g>
+    <g transform="matrix(1 -.19 0 1 94 233)">
+      <use href="#drawer"/>
+    </g>
+    <path d="M91 328 L198 306 M199 34 L199 301" stroke-width="1"/>
+    <circle cx="195" cy="27" r="1.8" fill="#fff" stroke-width="1"/>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="290" height="870" viewBox="0 5 145 435" fill="none">
+  <title>Traditional floor lamp</title>
+  <desc>A black-and-white line drawing of a tall floor lamp with a tapered fabric shade, a slender stem, a small turned collar, and a low oval base. The lamp is white-filled and the background is transparent.</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <g fill="#fff" stroke="#333" stroke-width="1.5">
+      <path d="M52 416 C52 409 67 402 88 400 C108 397 126 401 128 408 L128 414 C128 421 111 428 90 430 C70 432 53 429 52 423 Z"/>
+      <ellipse cx="90" cy="413" rx="38.2" ry="12.2" transform="rotate(-9 90 413)" stroke-width="1.2"/>
+      <path d="M67 108 L74 108 L92 406 C92 409 85 411 85 407 Z"/>
+      <path d="M65 89 L78 89 L76 100 Q75 102 77 104 L79 109 L76 113 L67 113 L65 109 L68 104 Q70 102 68 100 Z" stroke-width="1.25"/>
+      <path d="M30 16 C48 14 84 14 103 16 L129 84 Q131 87 127 89 C99 95 39 95 12 90 Q9 89 10 86 Z"/>
+    </g>
+    <g stroke="#888" stroke-width=".7">
+      <path d="M31 19 C52 17.8 82 18 102 19"/>
+      <path d="M12 86 C40 91 99 91 127 85"/>
+      <path d="M68 101 L76 101 M68 110 L76 110"/>
+      <path d="M70 119 L86 397" stroke="#aaa" stroke-width=".55"/>
+      <path d="M57 417 C66 424 104 421 120 413"/>
+    </g>
+  </g>
+</svg>

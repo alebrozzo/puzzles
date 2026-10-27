@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="300" viewBox="0 0 260 150" fill="none">
+  <title>Heavy glass ashtray</title>
+  <desc>A black-and-white line drawing of an empty, round heavy-glass ashtray, with a thick polished rim, four cigarette rests, and a substantial glass base. The background is transparent.</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 55 L22 86 C22 110 70 128 130 128 C190 128 238 110 238 86 L238 55 Z" fill="#fff" stroke="#333" stroke-width="2.6"/>
+    <ellipse cx="130" cy="55" rx="108" ry="38" fill="#fff" stroke="#333" stroke-width="2.6"/>
+    <path d="M43 54 C43 38 82 26 130 26 C178 26 217 38 217 54 C217 72 178 85 130 85 C82 85 43 72 43 54 Z" fill="#fff" stroke="#555" stroke-width="1.7"/>
+    <path d="M54 68 C72 56 99 51 130 51 C161 51 188 56 206 68" stroke="#999" stroke-width="1.3"/>
+    <path d="M57 69 C75 78 101 82 130 82 C159 82 185 78 203 69" stroke="#aaa" stroke-width=".9"/>
+    <g fill="#fff" stroke="#444" stroke-width="1.7">
+      <path d="M60 26 L64 35 C65 39 70 41 74 39 L78 36 L74 23"/>
+      <path d="M184 23 L181 35 C180 39 184 42 189 40 L196 36 L198 26"/>
+      <path d="M54 82 L59 70 C61 66 66 65 70 68 L75 72 L71 87"/>
+      <path d="M189 87 L186 74 C185 70 190 67 194 69 L202 73 L207 82"/>
+    </g>
+    <g stroke="#999" stroke-width="1.1">
+      <path d="M30 87 C32 105 75 119 130 119 C185 119 228 105 230 87"/>
+      <path d="M46 96 L48 103 M78 104 L80 112 M181 104 L179 112 M214 96 L212 103"/>
+      <path d="M87 22 C114 16 151 17 174 22"/>
+      <path d="M29 52 C28 61 34 67 42 72 M224 47 C230 52 231 57 228 62"/>
+      <path d="M91 96 C113 99 148 99 169 96" stroke="#bbb"/>
+    </g>
+  </g>
+</svg>

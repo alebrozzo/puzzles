@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="366" height="606" viewBox="92 12 122 202" fill="none">
+  <title>Classical bust</title>
+  <desc>A black-and-white line drawing of a classical bust on a pedestal, without surrounding objects. The background is transparent.</desc>
+  <!-- Main silhouette and pedestal in bold ink -->
+  <g fill="#fff" stroke="#222" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Pedestal foot and stem -->
+    <path d="M135 167 C136 177 131 184 121 189 C116 192 115 198 121 201 C132 207 173 207 185 201 C191 198 190 192 184 189 C174 184 169 177 170 167 Z"/>
+    <!-- Pedestal upper collar -->
+    <path d="M126 158 C123 161 124 166 130 168.5 C139 172.5 166 172.5 175 168.5 C181 166 181 161 178 158 Z"/>
+    <!-- Bust chest, shoulders, and neck -->
+    <path d="M136 86 C135 95 126 99 117 104 C109 108 101 113 100 118 C99 123 106 128 111 134 C117 140 120 151 126 157 C132 163 172 164 179 157 C185 151 189 140 195 134 C200 128 206 123 205 118 C203 112 194 108 186 104 C177 99 169 95 168 86 Z"/>
+    <!-- Outer hair silhouette -->
+    <path d="M131 73 C124 73 118 69 117 62 C116 57 119 52 122 49 C122 41 126 32 132 26 C138 20 145 18 152 18 C161 18 168 21 174 27 C179 33 182 41 181 49 C185 52 187 57 186 63 C184 69 179 73 173 73 Z"/>
+    <!-- Jaw and lower cheeks (solid line) -->
+    <path d="M131 63 C131 71 133 78 136 84 C140 91 146 96 152 96 C158 96 164 91 168 84 C171 78 173 71 173 63" stroke-width="2.1"/>
+  </g>
+
+  <!-- Soft hairline, temple waves, and hair texture -->
+  <g stroke="#777" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M131 61 C131 51 133 42 138 37 C142 33 147 34 152 36 C157 34 162 34 166 38 C170 43 172 51 173 61" stroke="#666" stroke-width="1.25"/>
+    <path d="M126 48 C126 40 130 33 136 28 M141 25 C146 22 153 22 159 24 M164 27 C170 31 175 38 176 46"/>
+    <path d="M139 32 C143 29 148 29 152 31 C156 32 160 30 164 32" stroke="#888" stroke-width=".85"/>
+    <path d="M121 56 C120 60 122 65 126 67 M181 56 C183 60 181 65 177 67"/>
+    <path d="M125 60 C125 63 127 66 130 67 M178 60 C178 63 176 66 173 67" stroke="#666" stroke-width=".9"/>
+  </g>
+
+  <!-- Facial features (subtle, soft sculpted marble look matching reference) -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <!-- Brows -->
+    <path d="M138 55.6 C140.5 54.4 144.2 54.5 146.8 55.6 M157.2 55.6 C159.8 54.5 163.5 54.4 166 55.6" stroke="#666" stroke-width="1.25"/>
+    <!-- Upper eyelids -->
+    <path d="M138.6 58.3 C140.8 56.8 144.2 56.9 146.3 58.4 M157.7 58.4 C159.8 56.9 163.2 56.8 165.4 58.3" stroke="#444" stroke-width="1.15"/>
+    <!-- Lower eyelids -->
+    <path d="M139.2 59.3 C141.2 60.6 144 60.6 145.8 59.4 M158.2 59.4 C160 60.6 162.8 60.6 164.8 59.3" stroke="#777" stroke-width=".9"/>
+    <!-- Nose tip and nostrils (no hard bridge line) -->
+    <path d="M148.8 70.6 C150 71.7 151.1 72 152.1 72 C153.1 72 154.2 71.7 155.4 70.6" stroke="#555" stroke-width="1.3"/>
+    <path d="M150.2 69.8 C151.4 69.2 152.8 69.2 154 69.8" stroke="#888" stroke-width=".85"/>
+    <!-- Mouth (subtle sculpted lips) -->
+    <path d="M149 77.6 C150.3 77.1 151.3 77 152.1 77.4 C152.9 77 153.9 77.1 155.2 77.6" stroke="#666" stroke-width=".95"/>
+    <path d="M149.2 77.9 C151.1 78.5 153.1 78.5 155 77.9" stroke="#444" stroke-width="1.05"/>
+    <path d="M150.2 80.1 C151.4 80.9 152.8 80.9 154 80.1" stroke="#777" stroke-width=".9"/>
+  </g>
+
+  <!-- Soft irises -->
+  <g fill="#444">
+    <ellipse cx="142.5" cy="58.4" rx="1.35" ry="1.2"/>
+    <ellipse cx="161.5" cy="58.4" rx="1.35" ry="1.2"/>
+  </g>
+
+  <!-- Neck, collarbone, and pedestal contour lines -->
+  <g stroke="#666" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M165 96 C161 103 156 110 150 117 M152 108 L151 110"/>
+    <path d="M139 95 L138 96" stroke="#777" stroke-width="1.1"/>
+    <path d="M128 192 C140 198 165 198 177 192" stroke="#666" stroke-width="1.3"/>
+  </g>
+</svg>

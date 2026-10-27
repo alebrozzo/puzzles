@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="520" viewBox="0 0 360 260" fill="none">
+  <title>Classical framed diploma</title>
+  <desc>A landscape diploma in a layered mitered frame, with ornamental rules, abstract writing marks, and a ribbon seal. No readable text. Transparent background.</desc>
+  <g stroke="#111" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 15 H345 V245 H15 Z" fill="#fff" stroke-width="4"/>
+    <path d="M22 22 H338 V238 H22 Z M32 32 H328 V228 H32 Z" stroke-width="1.4"/>
+    <path d="M40 40 H320 V220 H40 Z" stroke-width="3"/>
+    <path d="M15 15 L40 40 M345 15 L320 40 M345 245 L320 220 M15 245 L40 220" stroke-width="1.5"/>
+    <path d="M50 50 H310 V210 H50 Z" stroke-width="1"/>
+    <path d="M61 77 V61 H78 M282 61 H299 V77 M61 183 V199 H78 M282 199 H299 V183" stroke-width="1.5"/>
+    <path d="M155 69 H172 M188 69 H205 M176 69 L180 65 L184 69 L180 73 Z" stroke-width="1.4"/>
+    <path d="M112 87 H248 M127 94 H233" stroke-width="3"/>
+    <path d="M79 115 H281 M89 125 H271 M79 135 H281 M102 145 H258" stroke-width="1.5"/>
+    <path d="M76 183 H127 M232 183 H283" stroke-width="1"/>
+    <path d="M81 177 C89 161 89 188 98 173 S106 184 115 174 L123 176 M238 177 C249 160 241 188 254 174 S266 182 276 173" stroke-width="1.3"/>
+    <path d="M168 178 L163 200 L175 195 L181 204 L185 181 M184 179 L194 201 L198 192 L209 195 L197 174" fill="#fff" stroke-width="1.6"/>
+    <path d="M180 157 L185 160 L191 158 L194 163 L200 165 L199 171 L202 176 L198 181 L197 187 L190 188 L185 192 L180 189 L173 190 L171 184 L166 180 L168 174 L166 168 L172 165 L174 159 Z" fill="#fff" stroke-width="1.8"/>
+    <circle cx="184" cy="175" r="11" stroke-width="1"/>
+    <path d="M178 175 L182 179 L190 170" stroke-width="1.6"/>
+  </g>
+</svg>

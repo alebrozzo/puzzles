@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="620" viewBox="0 0 310 310" fill="none">
+  <title>Art Deco framed diploma</title>
+  <desc>A square diploma in a stepped Art Deco frame, with geometric corner details, a sunburst emblem, abstract writing rules, and an angular award seal. No readable text. Transparent background.</desc>
+  <g stroke="#111" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 14 H280 V30 H296 V280 H280 V296 H30 V280 H14 V30 H30 Z" fill="#fff" stroke-width="4"/>
+    <path d="M37 22 H273 V37 H288 V273 H273 V288 H37 V273 H22 V37 H37 Z" stroke-width="1.2"/>
+    <path d="M43 34 H267 V43 H276 V267 H267 V276 H43 V267 H34 V43 H43 Z" stroke-width="2"/>
+    <path d="M49 49 H261 V261 H49 Z" stroke-width="1.5"/>
+    <path d="M57 81 V57 H81 M229 57 H253 V81 M57 229 V253 H81 M229 253 H253 V229" stroke-width="2"/>
+    <path d="M62 72 V62 H72 M238 62 H248 V72 M62 238 V248 H72 M238 248 H248 V238" stroke-width="1"/>
+    <path d="M133 94 H177 L171 85 H139 Z M140 83 V77 M147 82 V70 M155 82 V66 M163 82 V70 M170 83 V77 M132 84 L126 78 M178 84 L184 78" stroke-width="1.4"/>
+    <path d="M141 94 V99 H169 V94" stroke-width="1"/>
+    <path d="M89 118 H221 M102 126 H208" stroke-width="3"/>
+    <path d="M121 137 H145 M165 137 H189 M151 137 L155 133 L159 137 L155 141 Z" stroke-width="1"/>
+    <path d="M73 157 H237 M82 168 H228 M73 179 H237 M96 190 H214" stroke-width="1.4"/>
+    <path d="M141 215 L132 244 L145 239 L151 249 L159 221 M158 215 L168 244 L173 235 L184 239 L173 213" fill="#fff" stroke-width="1.3"/>
+    <path d="M155 201 L163 207 L173 207 L173 217 L179 225 L171 231 L168 241 L158 238 L148 241 L143 232 L134 227 L139 218 L138 208 L148 207 Z" fill="#fff" stroke-width="1.6"/>
+    <path d="M155 209 L167 214 L170 226 L159 233 L147 228 L144 216 Z" stroke-width="1"/>
+    <path d="M151 220 L156 216 L162 221 L157 226 Z" stroke-width="1"/>
+    <path d="M71 237 H117 M195 237 H239 M76 231 C87 217 80 241 92 229 S103 237 112 227 M200 231 C211 216 204 241 216 229 S228 236 235 226" stroke-width="1"/>
+    <path d="M91 271 H134 M176 271 H219 M155 267 L159 271 L155 275 L151 271 Z" stroke-width="1"/>
+  </g>
+</svg>

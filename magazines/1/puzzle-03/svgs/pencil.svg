@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="500" viewBox="0 0 380 250" fill="none">
+  <title>Sharpened pencil</title>
+  <desc>A black-and-white line drawing of a hexagonal wooden pencil lying diagonally, with a sharpened graphite point, visible wood grain, a ridged metal ferrule, and a rounded eraser. The background is transparent.</desc>
+  <g transform="translate(34 213) rotate(-32)" stroke="#111" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1 0 L47 -12 H286 V12 H47 Z" fill="#fff" stroke-width="2.3"/>
+    <path d="M1 0 L16 -4 Q13 0 16 4 Z" fill="#111" stroke-width="1.2"/>
+    <path d="M47 -12 Q40 -8 48 -4 Q41 0 48 4 Q40 8 47 12" stroke-width="1.6"/>
+    <path d="M48 -4 H286 M48 4 H286" stroke-width="1.4"/>
+    <path d="M21 -2 L39 -7 M24 2 L39 7 M30 0 H41" stroke-width=".8"/>
+    <path d="M62 -8 H126 M144 -8 H254 M72 8 H194 M211 8 H268" stroke-width=".65"/>
+    <path d="M283 -13 H310 V13 H283 Z" fill="#fff" stroke-width="2"/>
+    <path d="M287 -13 V13 M292 -12 V12 M302 -12 V12 M307 -13 V13" stroke-width="1"/>
+    <path d="M293 -8 H301 M293 -4 H301 M293 4 H301 M293 8 H301" stroke-width=".7"/>
+    <path d="M310 -12 H323 Q334 -12 334 -2 V2 Q334 12 323 12 H310 Z" fill="#fff" stroke-width="2.2"/>
+    <path d="M315 -8 H323 Q329 -8 330 -3 M316 8 H324" stroke-width=".8"/>
+  </g>
+</svg>

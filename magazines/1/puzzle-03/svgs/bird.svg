@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="368" height="352" viewBox="5 10 92 88" fill="none">
+  <title>Bird standing on a branch</title>
+  <desc>A black-and-white line drawing of a left-facing bird standing on a simple wooden branch, with a long tail, sturdy feet, and a few simple feather lines. The background is transparent.</desc>
+  <path d="M18 89 C38 90 61 85 84 85 L87 88 L84 92 C63 91 40 95 18 94 Q15 92 18 89 Z" fill="#fff" stroke="#333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M22 92 C29 93 35 92 40 91 M65 89 L78 88" stroke="#999" stroke-width=".6" stroke-linecap="round"/>
+  <g fill="#fff" stroke="#333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M53 62 L58 65 L56 75 Q55 78 59 81 L65 84 Q67 85 66 87 L57 86 L50 87 L47 85 L51 81 L50 75 L49 64 Z"/>
+    <path d="M58 50 C68 55 80 66 89 74 Q92 78 87 78 C77 76 65 70 57 65 Z"/>
+    <path d="M43 63 C48 66 49 72 46 77 L40 83 L34 85 Q32 86 32 89 L42 88 L48 88 L53 87 Q53 85 49 85 L46 85 L51 79 C54 74 55 69 53 64 Z"/>
+    <path d="M27 24 C29 19 33 17 36 18 C41 18 42 23 43 28 L44 35 C54 38 65 44 73 51 L81 59 C78 62 73 63 68 63 C65 67 58 69 51 68 C43 68 35 64 31 58 C26 51 27 43 28 36 L28 31 C23 30 18 29 13 30 C14 27 20 24 27 24 Z"/>
+    <path d="M47 40 C57 41 68 48 74 54 L80 60 C68 64 54 61 46 53 C42 49 40 44 42 41 Q44 39 47 40 Z" stroke-width="1"/>
+  </g>
+  <g stroke="#777" stroke-width=".65" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 28 Q22 27 28 28"/>
+    <path d="M29 24 C30 22 32 21 34 21"/>
+    <path d="M36 29 C36 34 38 38 41 40"/>
+    <path d="M32 36 C30 45 31 52 35 57"/>
+    <path d="M46 44 C49 49 56 54 63 57"/>
+    <path d="M51 44 C55 49 63 54 70 57"/>
+    <path d="M58 46 C63 50 69 54 75 57"/>
+    <path d="M45 49 C47 53 51 56 56 58"/>
+    <path d="M65 65 C72 69 79 73 86 75"/>
+    <path d="M48 69 Q50 73 48 76"/>
+    <path d="M41 85 L39 88 M46 85 L45 88 M57 83 L56 86 M61 84 L61 86"/>
+  </g>
+  <circle cx="34.5" cy="24" r="1.15" fill="#262626"/>
+  <circle cx="34.2" cy="23.7" r=".3" fill="#fff"/>
+</svg>

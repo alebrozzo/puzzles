@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="740" viewBox="0 0 250 370" fill="none">
+  <title>Three-drawer filing cabinet</title>
+  <desc>A tall metal filing cabinet in three-quarter view with three closed drawers, inset label holders, curved handles, and a keyhole. Black-and-white line art with no lettering and a transparent background.</desc>
+  <defs>
+    <g id="drawer" stroke="#222" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0 H150 V87 H0 Z" fill="#fff" stroke-width="2"/>
+      <path d="M54 19 H96 V40 H54 Z M59 23 H91 V36 H59 Z" fill="#fff" stroke-width="1.2"/>
+      <path d="M43 58 V66 Q75 73 107 66 V58 L101 59 V63 Q75 68 49 63 V59 Z" fill="#fff" stroke-width="1.6"/>
+      <path d="M46 59 V64 M104 59 V64" stroke-width=".8"/>
+    </g>
+  </defs>
+  <g stroke="#222" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28 43 L68 20 L224 31 L185 55 Z" fill="#fff" stroke-width="2.7"/>
+    <path d="M185 55 L224 31 V320 L185 349 Z" fill="#fff" stroke-width="2.7"/>
+    <path d="M28 43 L185 55 V349 L28 335 Z" fill="#fff" stroke-width="2.7"/>
+    <path d="M37 55 H179 V329 H37 Z" stroke-width="1" transform="matrix(1 .075 0 1 0 -3)"/>
+    <g transform="matrix(.92 .075 0 1 36 58)">
+      <use href="#drawer"/>
+      <use href="#drawer" y="92"/>
+      <use href="#drawer" y="184"/>
+    </g>
+    <path d="M196 69 L214 56 V304 L196 317 M33 331 L181 344 M34 46 L181 57" stroke-width="1"/>
+    <circle cx="170" cy="65" r="3" fill="#fff" stroke-width="1"/>
+    <path d="M170 64 V67 M33 336 V342 L46 343 V337 M170 348 V354 L182 355 V350" stroke-width="1.5"/>
+  </g>
+</svg>

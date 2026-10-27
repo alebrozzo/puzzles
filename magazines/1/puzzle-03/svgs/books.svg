@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="420" viewBox="0 0 330 210" fill="none">
+  <title>Two stacked books with a strap</title>
+  <desc>A black-and-white line drawing of two thick, closed books stacked at a slight angle, with rounded spines, visible page edges, stitched covers, and a buckled strap. The background is transparent.</desc>
+  <g stroke="#333" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 100 L104 154 L309 132 L309 172 L105 198 L20 126 Q10 115 21 100 Z" fill="#fff"/>
+    <path d="M20 120 L105 191 L310 167 L313 174 L105 202 L18 128 Z" fill="#fff"/>
+    <path d="M21 93 L220 76 L312 129 Q316 132 312 135 L104 159 L20 107 Q15 101 21 93 Z" fill="#fff"/>
+    <path d="M24 99 L104 152 L301 130" fill="none" stroke="#777" stroke-width="1" stroke-dasharray="1 4"/>
+    <path d="M104 159 L105 191" fill="none" stroke-width="1.4"/>
+    <path d="M25 43 L110 105 L297 82 L299 111 L110 138 L25 72 Q13 58 25 43 Z" fill="#fff"/>
+    <path d="M24 66 L110 130 L299 105 L303 113 L110 142 L24 74 Q17 69 18 62" fill="#fff"/>
+    <path d="M25 35 L220 18 L299 79 Q304 83 300 87 L110 112 L25 53 Q20 49 20 44 Q20 39 25 35 Z" fill="#fff"/>
+    <path d="M29 40 L218 24 L292 81 L112 105 Z" fill="none" stroke="#777" stroke-width="1" stroke-dasharray="1 4"/>
+    <path d="M110 112 L110 130 M25 54 L25 66" fill="none" stroke-width="1.4"/>
+  </g>
+  <g stroke="#999" stroke-width="1" stroke-linecap="round">
+    <path d="M115 118 L293 94 M116 123 L294 100 M117 127 L281 105"/>
+    <path d="M29 59 L104 114 M29 64 L104 120 M31 70 L103 124"/>
+    <path d="M111 166 L302 142 M111 172 L302 148 M112 178 L302 154 M112 184 L300 160"/>
+    <path d="M23 112 L97 164 M23 118 L98 171 M28 129 L98 182"/>
+  </g>
+  <g fill="#fff" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M197 143 L216 140 C221 156 220 174 216 188 Q207 193 195 194 C201 175 200 157 197 143 Z"/>
+    <path d="M123 25 Q130 20 143 21 L216 80 L200 89 Z"/>
+    <path d="M197 83 C209 85 223 94 225 103 C227 111 222 119 219 128 L196 134 C200 121 201 108 197 102 L187 92 Z"/>
+    <path d="M163 71 C174 64 187 61 199 63 C205 64 207 68 202 72 C190 76 179 78 168 79 C161 79 158 76 163 71 Z" stroke-width="1.7"/>
+    <path d="M168 73 C177 69 189 66 199 67" fill="none" stroke="#888" stroke-width="1"/>
+    <ellipse cx="205" cy="96" rx="3" ry="2.3" transform="rotate(32 205 96)" stroke-width="1.2"/>
+  </g>
+  <g stroke="#999" stroke-width=".9" stroke-linecap="round">
+    <path d="M133 26 L194 76 M204 111 Q207 121 203 127 M205 151 Q209 168 205 185"/>
+  </g>
+</svg>

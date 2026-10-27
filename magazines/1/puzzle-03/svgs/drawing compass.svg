@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="268" viewBox="0 0 366 134" fill="none">
+  <title>Drawing compass</title>
+  <desc>A black-and-white line drawing of an open drawing compass, lying diagonally with both points facing right. The background is transparent.</desc>
+  <g fill="#fff" stroke="#262626" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M46 34 L23 28 C18 27 14 30 13 34 C12 38 15 42 20 43 L44 49 Z"/>
+    <path d="M69 31 C112 32 166 37 215 42 L277 49 C287 50 296 53 305 58 L318 65 C295 65 277 64 259 63 L78 54 Z"/>
+    <path d="M278 53 L319 61 L346 67 L315 68 L278 63 Z"/>
+    <path d="M71 45 C115 57 161 70 203 82 L253 96 L249 108 L195 94 L68 64 Z"/>
+    <path d="M194 79 L210 83 L205 97 L190 93 Z"/>
+    <path d="M211 83 L270 100 L286 112 L266 113 L207 97 Z"/>
+    <path d="M270 100 L305 119 L266 113 Z"/>
+    <path d="M57 25 C70 25 81 34 81 45 C81 57 71 65 58 64 C45 63 36 55 37 44 C37 33 45 26 57 25 Z"/>
+    <path d="M58 34 C65 34 71 39 71 45 C71 51 65 56 59 55 C52 55 47 50 47 44 C47 38 52 34 58 34 Z" stroke-width="2"/>
+  </g>
+  <g stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M86 41 C144 43 210 50 267 56"/>
+    <path d="M85 58 L186 86"/>
+    <path d="M219 91 L264 104"/>
+    <path d="M55 48 L63 41" stroke="#444" stroke-width="2"/>
+    <path d="M22 33 L20 38 M28 35 L27 40 M34 36 L33 41"/>
+  </g>
+  <path d="M290 111 L305 119 L287 116 Z" fill="#262626"/>
+  <path d="M328 63 L346 67 L327 68 Z" fill="#262626"/>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="680" viewBox="0 0 260 340" fill="none">
+  <title>Ornate portrait framed diploma</title>
+  <desc>A tall diploma in an ornate frame with curled corner ornaments, a laurel crest, abstract writing rules, and two signature flourishes. No readable text. Transparent background.</desc>
+  <g stroke="#111" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M27 17 H233 Q243 17 243 27 V313 Q243 323 233 323 H27 Q17 323 17 313 V27 Q17 17 27 17 Z" fill="#fff" stroke-width="3.5"/>
+    <path d="M26 26 H234 V314 H26 Z M35 35 H225 V305 H35 Z" stroke-width="1.4"/>
+    <path d="M43 43 H217 V297 H43 Z" fill="#fff" stroke-width="2.5"/>
+    <g fill="#fff" stroke-width="1.6">
+      <path d="M18 45 C3 39 9 16 24 20 C17 6 39 5 44 18 C52 16 60 21 56 28 C53 33 46 30 47 26 C34 24 25 33 27 46 C31 46 33 53 28 56 C20 60 15 52 18 45 Z"/>
+      <path d="M242 45 C257 39 251 16 236 20 C243 6 221 5 216 18 C208 16 200 21 204 28 C207 33 214 30 213 26 C226 24 235 33 233 46 C229 46 227 53 232 56 C240 60 245 52 242 45 Z"/>
+      <path d="M18 295 C3 301 9 324 24 320 C17 334 39 335 44 322 C52 324 60 319 56 312 C53 307 46 310 47 314 C34 316 25 307 27 294 C31 294 33 287 28 284 C20 280 15 288 18 295 Z"/>
+      <path d="M242 295 C257 301 251 324 236 320 C243 334 221 335 216 322 C208 324 200 319 204 312 C207 307 214 310 213 314 C226 316 235 307 233 294 C229 294 227 287 232 284 C240 280 245 288 242 295 Z"/>
+    </g>
+    <path d="M53 62 V53 H207 V62 M53 278 V287 H207 V278" stroke-width="1"/>
+    <path d="M125 97 C107 94 99 81 104 67 M135 97 C153 94 161 81 156 67" stroke-width="1.3"/>
+    <path d="M110 88 Q96 88 99 78 Q109 78 110 88 Z M105 78 Q95 70 102 63 Q110 68 105 78 Z M118 94 Q106 100 104 90 Q113 86 118 94 Z M150 88 Q164 88 161 78 Q151 78 150 88 Z M155 78 Q165 70 158 63 Q150 68 155 78 Z M142 94 Q154 100 156 90 Q147 86 142 94 Z" fill="#fff" stroke-width="1"/>
+    <path d="M130 67 L134 77 L145 78 L137 85 L139 96 L130 90 L121 96 L123 85 L115 78 L126 77 Z" stroke-width="1.5"/>
+    <path d="M78 117 H182 M91 125 H169" stroke-width="3"/>
+    <path d="M69 149 H191 M69 160 H191 M78 171 H182 M69 182 H191 M86 193 H174" stroke-width="1.5"/>
+    <path d="M99 213 H161 M112 220 H148" stroke-width="1"/>
+    <circle cx="130" cy="245" r="14" stroke-width="1.8"/>
+    <circle cx="130" cy="245" r="10" stroke-width=".8"/>
+    <path d="M125 245 L130 239 L135 245 L130 251 Z" stroke-width="1"/>
+    <path d="M65 274 H109 M151 274 H195 M69 268 C80 252 73 279 86 265 S95 274 104 265 M155 267 C167 253 158 280 172 265 S181 274 191 265" stroke-width="1.1"/>
+  </g>
+</svg>

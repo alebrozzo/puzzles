@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="240" viewBox="0 0 180 240" fill="none">
+  <title>Hand-drawn table lamp</title>
+  <desc>A white tapered lampshade with a charcoal outline, a slender curved stem, and an oval pedestal base. The background is transparent.</desc>
+  <g stroke="#45433f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#fff" d="M81 111 C82 118 85 120 84 126 C83 130 79 131 81 135 L85 139 C81 146 79 154 80 162 C81 174 86 186 84 199 C83 206 81 211 75 213 L66 215 C61 216 59 220 61 223 C69 228 107 228 119 223 C122 220 118 216 113 215 L104 213 C97 211 95 207 94 200 C92 189 98 175 99 163 C100 153 96 146 93 139 L97 135 C99 132 94 130 93 127 C91 122 95 117 96 111 Z"/>
+    <path d="M65 220 C78 223 104 223 116 220" stroke-width="1.5"/>
+    <path fill="#fff" d="M39 18 C63 12 116 12 140 17 L169 111 C141 120 39 121 11 112 Z"/>
+    <path d="M42 22 C68 17 114 17 137 21" stroke-width="1.4"/>
+    <path d="M16 111 C56 112 121 113 164 110" stroke-width="1.4"/>
+  </g>
+</svg>

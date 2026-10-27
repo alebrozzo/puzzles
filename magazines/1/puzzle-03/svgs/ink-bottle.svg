@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 160 160" fill="none">
+  <title>Square ink bottle</title>
+  <desc>A single squat glass ink bottle with a square base, dark ink, and a round screw lid, drawn in black-and-white line art. The background is transparent.</desc>
+  <path d="M50 54 C50 59 47 62 41 64 L25 69 C21 70 19 73 19 78 L13 125 C12 129 14 132 18 134 L59 151 Q64 153 70 151 L139 132 C143 131 145 128 144 124 L142 80 C142 75 140 73 136 71 L119 65 C112 63 110 60 110 54 L109 41 L51 41 Z" fill="#fff" stroke="#262626" stroke-width="2.3" stroke-linejoin="round"/>
+  <path d="M24 94 L80 81 L134 93 L136 123 Q136 126 132 127 L68 145 Q64 146 60 144 L23 128 Q21 127 21 124 Z" fill="#303030"/>
+  <path d="M65 109 L134 93 L136 123 Q136 126 132 127 L68 145 L65 145 Z" fill="#242424"/>
+  <path d="M24 94 C41 91 62 85 80 81 C96 84 117 90 134 93 L65 111 Z" fill="#626262"/>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 76 L60 91 Q64 93 69 92 L139 77" stroke="#555" stroke-width="1.35"/>
+    <path d="M65 95 L65 144" stroke="#ccc" stroke-width="1.1"/>
+    <path d="M20 130 L60 147 Q64 149 69 147 L138 128" stroke="#777" stroke-width="1"/>
+    <path d="M28 80 L24 106 M23 112 L22 121 M135 83 L137 117" stroke="#aaa" stroke-width="1.1"/>
+    <path d="M30 100 L28 116 M127 101 L128 119" stroke="#fff" stroke-width="1.8"/>
+    <path d="M34 101 L33 109" stroke="#aaa" stroke-width=".8"/>
+    <path d="M30 73 L45 69 M116 69 L130 74" stroke="#888" stroke-width=".9"/>
+    <path d="M53 56 C62 62 98 62 107 56" stroke="#888" stroke-width="1"/>
+    <path d="M57 48 L57 53 M104 48 L104 53" stroke="#999" stroke-width=".85"/>
+  </g>
+  <g fill="#fff" stroke="#262626" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 25 L50 39 C50 49 110 49 110 39 L110 25 Z"/>
+    <ellipse cx="80" cy="25" rx="30" ry="8.5"/>
+  </g>
+  <g stroke="#777" stroke-width=".9" stroke-linecap="round">
+    <path d="M56 25 C64 20.5 96 20.5 104 25"/>
+    <path d="M54 36 C66 41 95 41 106 36 M54 40 C66 45 95 45 106 40"/>
+  </g>
+</svg>

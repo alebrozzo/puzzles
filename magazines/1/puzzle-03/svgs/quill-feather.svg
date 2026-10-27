@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="420" viewBox="0 0 130 210" fill="none">
+  <title>Quill feather</title>
+  <desc>A black-and-white line drawing of a long quill feather leaning to the right, with a curved shaft and simple feather barbs. The background is transparent.</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 164 C32 130 49 90 74 59 C90 39 106 26 119 20 C118 40 104 66 89 88 C73 112 64 136 45 149 L39 161 L36 158 L33 169 L29 172 Z" fill="#fff" stroke="#333" stroke-width="1.7"/>
+    <g stroke="#888" stroke-width=".85">
+      <path d="M37 153 L35 144 M43 138 L39 128 M49 123 L45 111 M57 107 L53 94 M66 91 L63 80 M75 75 L73 65 M85 61 L84 52 M95 47 L95 39"/>
+      <path d="M40 146 Q49 143 56 137 M47 131 Q58 127 67 120 M55 114 Q69 109 80 100 M64 96 Q80 91 91 83 M74 78 Q91 72 103 64 M85 60 Q102 54 113 44 M96 45 Q109 38 117 30"/>
+      <path d="M35 158 L33 153 M42 141 L53 137 M51 121 L64 117 M61 101 L77 96 M71 83 L87 78 M81 66 L98 59" stroke="#aaa" stroke-width=".6"/>
+    </g>
+    <path d="M22 198 C39 138 70 70 115 28 C75 79 44 143 26 198 Z" fill="#fff" stroke="#444" stroke-width="1.1"/>
+  </g>
+</svg>

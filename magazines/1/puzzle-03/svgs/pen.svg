@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="500" viewBox="0 0 380 250" fill="none">
+  <title>Fountain pen</title>
+  <desc>A black-and-white line drawing of a fountain pen lying diagonally, with an exposed split nib, ribbed grip, smooth barrel, and a posted cap with a pocket clip. The background is transparent.</desc>
+  <g transform="translate(34 213) rotate(-32)" stroke="#111" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1 0 C14 -3 24 -11 34 -12 L51 -8 V8 L34 12 C24 11 14 3 1 0 Z" fill="#fff" stroke-width="2.2"/>
+    <path d="M1 0 H33 M33 -3 A3 3 0 1 0 33 3 A3 3 0 1 0 33 -3 Z" stroke-width="1.2"/>
+    <path d="M18 -3 Q29 -4 39 -8 M18 3 Q29 4 39 8" stroke-width=".8"/>
+    <path d="M47 -9 H59 V9 H47 Z" fill="#fff" stroke-width="1.8"/>
+    <path d="M59 -9 C71 -9 80 -13 91 -13 V13 C80 13 71 9 59 9 Z" fill="#fff" stroke-width="2.2"/>
+    <path d="M64 -9 V9 M70 -10 V10 M77 -11 V11 M84 -12 V12" stroke-width="1"/>
+    <path d="M91 -13 C131 -14 190 -14 244 -12 L250 -9 V9 L244 12 C190 14 131 14 91 13 Z" fill="#fff" stroke-width="2.4"/>
+    <path d="M99 -8 C137 -9 183 -9 227 -8 M104 9 H198" stroke-width=".9"/>
+    <path d="M91 -13 H99 V13 H91 Z" fill="#fff" stroke-width="1.6"/>
+    <path d="M238 -14 C263 -16 295 -16 316 -12 Q328 -10 328 0 Q328 10 316 12 C295 16 263 16 238 14 Z" fill="#fff" stroke-width="2.4"/>
+    <path d="M243 -14 V14 M250 -15 V15" stroke-width="1.2"/>
+    <path d="M257 -10 C277 -11 294 -11 309 -9 M258 11 Q290 13 313 9" stroke-width=".8"/>
+    <path d="M310 -13 Q319 -20 308 -21 L264 -21 Q258 -21 258 -16 L258 -9 Q258 -5 263 -5 Q268 -5 267 -10 L267 -14 H305" fill="#fff" stroke-width="1.8"/>
+    <path d="M317 -10 Q322 -5 322 1" stroke-width="1"/>
+  </g>
+</svg>
