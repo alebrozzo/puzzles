@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="0 0 640 160">
+  <title>Single roll of paper without a bow</title>
+  <desc>A gently tilted white paper roll with a curled open end, black outlines, and transparent background.</desc>
+  <path d="M47 68L575 27C587 26 594 36 595 50C597 65 591 76 580 78L46 120C34 121 28 111 27 96C26 81 33 69 47 68Z" fill="white" stroke="#262626" stroke-width="3.6" stroke-linejoin="round"/>
+  <path d="M47 74L573 33M44 115L573 73" fill="none" stroke="#666" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M46 69C35 75 32 86 33 98C34 110 38 117 46 120" fill="none" stroke="#353535" stroke-width="2" stroke-linecap="round"/>
+  <path d="M573 28C562 31 558 42 559 55C560 70 568 79 580 78C590 76 595 65 595 52C594 37 587 26 573 28Z" fill="white" stroke="#262626" stroke-width="2.7"/>
+  <path d="M576 34C568 34 564 43 565 55C566 65 570 72 577 71C584 70 588 62 587 53C586 44 582 39 577 40C572 41 570 47 571 54C571 59 573 63 577 63C580 62 582 58 581 54C581 51 579 49 577 50" fill="none" stroke="#454545" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
