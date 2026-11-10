@@ -1,0 +1,58 @@
+
+On the Desk
+
+• Banker's lamp. Positioned on the far left corner of the desk.
+- Glass ashtray. Resting right in front of the banker's lamp.
+• Vintage typewriter. Set on the left-center side of the desk, viewed from the back with a blank sheet of paper loaded.
+• Quill feather in an inkwell. Standing just behind the typewriter.
+- Horse figurine. Placed in the center of the desk next to the typewriter.
+• Open notebook. Lying flat in the front center with blank pages.
+• Fountain pen. Resting right beside the open notebook.
+• Pair of eyeglasses. Positioned in front of the horse figurine.
+• Magnifying glass. Lying next to the glasses on the right-center side.
+• Stapler. Placed to the right of the horse figurine.
+• Tape dispenser. Sitting near the front right corner of the desk.
+• Pair of scissors. Resting on the far right edge of the desk.
+• Cup of pens and pencils. Standing in the back right corner of the desk.
+
+On the Bookshelf & Side Cabinet
+
+• Bust statue. Sitting on the left side of the top of the short cabinet.
+- Single-stem candlestick holder. Placed next to the bust on the short cabinet.
+• Ship in a bottle. Displayed on the upper shelf of the bookcase.
+• Wooden clock. Standing upright on the middle-left shelf.
+• Telescope on a tripod. Positioned on the middle-right shelf.
+• Bookends. Holding up rows of books on the shelves.
+• Globe on a stand. Resting on the lower-right shelf.
+
+On the Wall & Floor
+
+• Framed diplomas and certificates. Three frames hanging above the desk (two portrait-oriented on the left, one landscape-oriented in the center).
+• Framed world map. Hanging on the upper right side of the wall.
+• Framed botanical leaf print. Hanging on the lower right side of the wall beneath the map.
+• Woven wastebasket. Sitting on the floor to the right of the desk, containing crumpled paper.
+
+--
+
+I have this image, now I need to generate a new image of the same place but as if it had been messed up by someone looking for something. I will list what needs to be change below.
+
+Banker's lamp, laying on the desk
+Typewriter, same position but with paper messed up
+Quill feather and inkwell, laying sideways on the desk and a little bit of ink spilled
+Notebooks, open with pages slightly crumpled
+Fountain pen on top of open notebook
+Eyeglasses on the bookshelf, upside down
+Magnifying glass on the floor, cracked
+Stapler seen behind the banker's lamp
+Tape dispenser knocked over on the desk
+Pair of scissors on the bookshelf
+Cup of pens and pencils knocked over
+Bust statue sitting on the right side of the top of the cabinet, looking in a different direction
+Ship in a bottle on the bookshelf with some sails broken
+Wooden clock on the desk, side tilted
+Telescope on the floor, tripod collapsed
+Bookends on the bookshelf, some fallen over
+Globe on the floor, dropped and showing a different part of the world
+Frames should be slightly tilted
+Wastebasket on the floor, tipped over with crumpled paper spilling out
+
